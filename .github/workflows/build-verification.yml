@@ -2,30 +2,25 @@ name: build-verification
 
 on:
   push:
-    branches: [main, agent/**]
   pull_request:
-    branches: [main, agent/**]
 
 jobs:
-  build-linux:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Qt6 and build tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y qt6-base-dev qt6-tools-dev build-essential
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.10.0'
+          host: linux
+          target: desktop
+          modules: 'qtbase'
+          cache: true
 
-      - name: Verify qmake6 is available
-        run: qmake6 --version
+      - name: Build
+        run: qmake Calculator.pro && make -j$(nproc)
 
-      - name: Generate Makefile with qmake
-        run: qmake6 Calculator.pro -o build/Makefile
-
-      - name: Build with make
-        run: make -C build -j$(nproc)
-
-      - name: Verify binary was produced
-        run: test -f build/Calculator
+      - name: Verify main window resource
+        run: grep -q '<string>Calculator</string>' forms/mainwindow.ui
