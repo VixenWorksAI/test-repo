@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QAction>
+#include <QLineEdit>
 #include <QMenu>
 #include <QMenuBar>
 #include <QSet>
@@ -138,6 +139,11 @@ bool MainWindow::hasUniqueMenuTitles() const
         titles.insert(menu->title());
     }
     return !titles.isEmpty();
+}
+
+QLineEdit *MainWindow::displayEdit() const
+{
+    return ui->displayEdit;
 }
 
 void MainWindow::on_actionToggle_Sidebar_triggered()

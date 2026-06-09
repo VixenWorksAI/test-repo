@@ -9,6 +9,7 @@ QT_END_NAMESPACE
 
 class QAction;
 class QMenu;
+class QLineEdit;
 
 class MainWindow : public QMainWindow
 {
@@ -33,6 +34,8 @@ public:
 
     QList<QMenu *> topLevelMenus() const;
     bool hasUniqueMenuTitles() const;
+
+    QLineEdit *displayEdit() const;
 
 signals:
     void aboutDialogRequested();
