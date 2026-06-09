@@ -21,7 +21,27 @@ MainWindow::MainWindow(QWidget *parent)
     , m_zoomPercent(kDefaultZoomPercent)
 {
     ui->setupUi(this);
+    applyResponsiveLayout();
     setupViewMenu();
+}
+
+void MainWindow::applyResponsiveLayout()
+{
+    setMinimumSize(320, 420);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    for (int column = 0; column < 4; ++column) {
+        ui->keypadGridLayout->setColumnMinimumWidth(column, 60);
+        ui->keypadGridLayout->setColumnStretch(column, 1);
+    }
+    for (int row = 0; row < 4; ++row) {
+        ui->keypadGridLayout->setRowMinimumHeight(row, 48);
+        ui->keypadGridLayout->setRowStretch(row, 1);
+    }
+
+    ui->centralLayout->setStretch(0, 0);
+    ui->centralLayout->setStretch(1, 1);
+    ui->centralLayout->setSizeConstraint(QLayout::SetMinimumSize);
 }
 
 MainWindow::~MainWindow()

@@ -53,6 +53,7 @@ private slots:
 
 private:
     void setupViewMenu();
+    void applyResponsiveLayout();
     void applyZoom(int percent);
 
     Ui::MainWindow *ui;
