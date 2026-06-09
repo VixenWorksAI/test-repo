@@ -15,6 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="centralLayout">
+    <!-- TODO(E2): displayEdit is the result channel for arithmetic operations. -->
     <item>
      <widget class="QLineEdit" name="displayEdit">
       <property name="sizePolicy">
@@ -147,6 +148,7 @@
         </widget>
        </item>
        <item row="0" column="3">
+        <!-- TODO(E2): wire buttonDivide to division operation slot -->
         <widget class="QPushButton" name="buttonDivide">
          <property name="text">
           <string>/</string>
@@ -223,6 +225,7 @@
         </widget>
        </item>
        <item row="1" column="3">
+        <!-- TODO(E2): wire buttonMultiply to multiplication operation slot -->
         <widget class="QPushButton" name="buttonMultiply">
          <property name="text">
           <string>*</string>
@@ -299,6 +302,7 @@
         </widget>
        </item>
        <item row="2" column="3">
+        <!-- TODO(E2): wire buttonSubtract to subtraction operation slot -->
         <widget class="QPushButton" name="buttonSubtract">
          <property name="text">
           <string>-</string>
@@ -356,6 +360,7 @@
         </widget>
        </item>
        <item row="3" column="2">
+        <!-- TODO(E2): wire buttonEquals to evaluation/result slot -->
         <widget class="QPushButton" name="buttonEquals">
          <property name="text">
           <string>=</string>
@@ -375,6 +380,7 @@
         </widget>
        </item>
        <item row="3" column="3">
+        <!-- TODO(E2): wire buttonAdd to addition operation slot -->
         <widget class="QPushButton" name="buttonAdd">
          <property name="text">
           <string>+</string>
