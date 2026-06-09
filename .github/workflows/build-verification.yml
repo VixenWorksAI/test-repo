@@ -27,3 +27,6 @@ jobs:
 
       - name: Verify File menu resource
         run: grep -q '<string>&amp;File</string>' forms/mainwindow.ui && grep -q '<string>E&amp;xit</string>' forms/mainwindow.ui
+
+      - name: Verify Edit menu resource
+        run: grep -q '<string>&amp;Edit</string>' forms/mainwindow.ui && grep -q '<string>&amp;Copy</string>' forms/mainwindow.ui && grep -q '<string>&amp;Paste</string>' forms/mainwindow.ui
