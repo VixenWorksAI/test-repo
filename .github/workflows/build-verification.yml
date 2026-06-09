@@ -30,3 +30,6 @@ jobs:
 
       - name: Verify Edit menu resource
         run: grep -q '<string>&amp;Edit</string>' forms/mainwindow.ui && grep -q '<string>&amp;Copy</string>' forms/mainwindow.ui && grep -q '<string>&amp;Paste</string>' forms/mainwindow.ui
+
+      - name: Verify View menu resource
+        run: grep -q '<string>&amp;View</string>' forms/mainwindow.ui && grep -q '<string>Toggle &amp;Sidebar</string>' forms/mainwindow.ui && grep -q '<string>Toggle &amp;Status Bar</string>' forms/mainwindow.ui && grep -q '<string>Zoom &amp;In</string>' forms/mainwindow.ui && grep -q '<string>Zoom &amp;Out</string>' forms/mainwindow.ui && grep -q '<string>&amp;Reset Zoom</string>' forms/mainwindow.ui

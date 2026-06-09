@@ -9,3 +9,5 @@ Makefile
 *.pro.user
 *.pro.user.*
 *.qm
+tests/*/test_*.moc
+.artifacts/

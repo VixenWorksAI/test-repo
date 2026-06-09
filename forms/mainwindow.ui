@@ -28,10 +28,29 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
    </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menuToolbars">
+     <property name="title">
+      <string>&amp;Toolbars</string>
+     </property>
+     <addaction name="actionToggle_Main_Toolbar"/>
+    </widget>
+    <addaction name="actionToggle_Sidebar"/>
+    <addaction name="actionToggle_Statusbar"/>
+    <addaction name="menuToolbars"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="actionReset_Zoom"/>
+   </widget>
+    <addaction name="menuFile"/>
+    <addaction name="menuEdit"/>
+    <addaction name="menuView"/>
+   </widget>
+   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
    <property name="text">
     <string>E&amp;xit</string>
@@ -45,6 +64,54 @@
   <action name="actionPaste">
    <property name="text">
     <string>&amp;Paste</string>
+   </property>
+  </action>
+  <action name="actionToggle_Sidebar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toggle &amp;Sidebar</string>
+   </property>
+  </action>
+  <action name="actionToggle_Statusbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toggle &amp;Status Bar</string>
+   </property>
+  </action>
+  <action name="actionToggle_Main_Toolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toggle Main Toolbar</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom &amp;In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom &amp;Out</string>
+   </property>
+  </action>
+  <action name="actionReset_Zoom">
+   <property name="text">
+    <string>&amp;Reset Zoom</string>
    </property>
   </action>
  </widget>
