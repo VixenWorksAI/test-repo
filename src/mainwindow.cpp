@@ -132,6 +132,14 @@ void MainWindow::on_actionReset_Zoom_triggered()
     applyZoom(kDefaultZoomPercent);
 }
 
+void MainWindow::on_actionAbout_triggered()
+{
+}
+
+void MainWindow::on_actionDocumentation_triggered()
+{
+}
+
 void MainWindow::applyZoom(int percent)
 {
     if (percent < kMinZoomPercent) {
