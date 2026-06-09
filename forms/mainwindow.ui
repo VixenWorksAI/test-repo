@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+ <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
@@ -53,25 +53,43 @@
     <addaction name="actionAbout"/>
     <addaction name="actionDocumentation"/>
    </widget>
-    <addaction name="menuFile"/>
-    <addaction name="menuEdit"/>
-    <addaction name="menuView"/>
-    <addaction name="menuHelp"/>
-   </widget>
-   <widget class="QStatusBar" name="statusbar"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
    <property name="text">
     <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="statusTip">
+    <string>Quit the application</string>
    </property>
   </action>
   <action name="actionCopy">
    <property name="text">
     <string>&amp;Copy</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+   <property name="statusTip">
+    <string>Copy selected content to the clipboard</string>
+   </property>
   </action>
   <action name="actionPaste">
    <property name="text">
     <string>&amp;Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+   <property name="statusTip">
+    <string>Paste clipboard content at the cursor</string>
    </property>
   </action>
   <action name="actionToggle_Sidebar">
@@ -84,6 +102,9 @@
    <property name="text">
     <string>Toggle &amp;Sidebar</string>
    </property>
+   <property name="statusTip">
+    <string>Show or hide the sidebar panel</string>
+   </property>
   </action>
   <action name="actionToggle_Statusbar">
    <property name="checkable">
@@ -94,6 +115,9 @@
    </property>
    <property name="text">
     <string>Toggle &amp;Status Bar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the status bar</string>
    </property>
   </action>
   <action name="actionToggle_Main_Toolbar">
@@ -106,33 +130,61 @@
    <property name="text">
     <string>Toggle Main Toolbar</string>
    </property>
+   <property name="statusTip">
+    <string>Show or hide the main toolbar</string>
+   </property>
   </action>
   <action name="actionZoom_In">
    <property name="text">
     <string>Zoom &amp;In</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+   <property name="statusTip">
+    <string>Increase the zoom level</string>
    </property>
   </action>
   <action name="actionZoom_Out">
    <property name="text">
     <string>Zoom &amp;Out</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+   <property name="statusTip">
+    <string>Decrease the zoom level</string>
+   </property>
   </action>
   <action name="actionReset_Zoom">
    <property name="text">
     <string>&amp;Reset Zoom</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
+   <property name="statusTip">
+    <string>Restore the default zoom level</string>
    </property>
   </action>
   <action name="actionAbout">
    <property name="text">
     <string>&amp;About</string>
    </property>
+   <property name="statusTip">
+    <string>Show information about the application</string>
+   </property>
   </action>
   <action name="actionDocumentation">
    <property name="text">
     <string>&amp;Documentation</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the application documentation</string>
    </property>
   </action>
  </widget>
  <resources/>
  <connections/>
 </ui>
+

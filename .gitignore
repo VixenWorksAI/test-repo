@@ -10,4 +10,7 @@ Makefile
 *.pro.user.*
 *.qm
 tests/*/test_*.moc
+tests/build-*/
+tests/menu-integration-*
+Calculator
 .artifacts/

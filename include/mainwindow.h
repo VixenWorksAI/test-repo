@@ -31,6 +31,13 @@ public:
     bool isMainToolbarVisible() const;
     int currentZoomPercent() const;
 
+    QList<QMenu *> topLevelMenus() const;
+    bool hasUniqueMenuTitles() const;
+
+signals:
+    void aboutDialogRequested();
+    void documentationRequested();
+
 private slots:
     void on_actionToggle_Sidebar_triggered();
     void on_actionToggle_Statusbar_triggered();

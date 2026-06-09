@@ -4,6 +4,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
+#include <QSet>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -101,6 +102,44 @@ int MainWindow::currentZoomPercent() const
     return m_zoomPercent;
 }
 
+QList<QMenu *> MainWindow::topLevelMenus() const
+{
+    QList<QMenu *> menus;
+    if (ui->menubar == nullptr) {
+        return menus;
+    }
+    const QList<QAction *> actions = ui->menubar->actions();
+    for (QAction *action : actions) {
+        if (action == nullptr) {
+            continue;
+        }
+        QMenu *menu = action->menu();
+        if (menu != nullptr) {
+            menus.append(menu);
+        }
+    }
+    return menus;
+}
+
+bool MainWindow::hasUniqueMenuTitles() const
+{
+    QSet<QString> titles;
+    const QList<QMenu *> menus = topLevelMenus();
+    for (const QMenu *menu : menus) {
+        if (menu == nullptr) {
+            continue;
+        }
+        if (menu->title().isEmpty()) {
+            return false;
+        }
+        if (titles.contains(menu->title())) {
+            return false;
+        }
+        titles.insert(menu->title());
+    }
+    return !titles.isEmpty();
+}
+
 void MainWindow::on_actionToggle_Sidebar_triggered()
 {
 }
@@ -134,10 +173,12 @@ void MainWindow::on_actionReset_Zoom_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
+    emit aboutDialogRequested();
 }
 
 void MainWindow::on_actionDocumentation_triggered()
 {
+    emit documentationRequested();
 }
 
 void MainWindow::applyZoom(int percent)
