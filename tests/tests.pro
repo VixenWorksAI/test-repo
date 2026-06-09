@@ -11,15 +11,23 @@ INCLUDEPATH += $$PWD/../include \
 SOURCES += \
     $$PWD/test_main.cpp \
     $$PWD/../src/mainwindow.cpp \
+    $$PWD/../src/arithmeticoperations.cpp \
     $$PWD/unit/test_placeholder_responsiveness_unit.cpp \
+    $$PWD/unit/test_addition_unit.cpp \
     $$PWD/integration/test_placeholder_responsiveness_integration.cpp \
-    $$PWD/e2e/test_placeholder_responsiveness_e2e.cpp
+    $$PWD/integration/test_addition_integration.cpp \
+    $$PWD/e2e/test_placeholder_responsiveness_e2e.cpp \
+    $$PWD/e2e/test_addition_e2e.cpp
 
 HEADERS += \
     $$PWD/../include/mainwindow.h \
+    $$PWD/../include/arithmeticoperations.h \
     $$PWD/unit/test_placeholder_responsiveness_unit.h \
+    $$PWD/unit/test_addition_unit.h \
     $$PWD/integration/test_placeholder_responsiveness_integration.h \
-    $$PWD/e2e/test_placeholder_responsiveness_e2e.h
+    $$PWD/integration/test_addition_integration.h \
+    $$PWD/e2e/test_placeholder_responsiveness_e2e.h \
+    $$PWD/e2e/test_addition_e2e.h
 
 FORMS += \
     $$PWD/../forms/mainwindow.ui

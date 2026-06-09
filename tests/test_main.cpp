@@ -8,6 +8,9 @@
 #include "test_placeholder_responsiveness_unit.h"
 #include "test_placeholder_responsiveness_integration.h"
 #include "test_placeholder_responsiveness_e2e.h"
+#include "test_addition_unit.h"
+#include "test_addition_integration.h"
+#include "test_addition_e2e.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,11 +22,23 @@ int main(int argc, char *argv[])
         status |= QTest::qExec(&unit, argc, argv);
     }
     {
+        TestAdditionUnit unit;
+        status |= QTest::qExec(&unit, argc, argv);
+    }
+    {
         TestPlaceholderResponsivenessIntegration integration;
         status |= QTest::qExec(&integration, argc, argv);
     }
     {
+        TestAdditionIntegration integration;
+        status |= QTest::qExec(&integration, argc, argv);
+    }
+    {
         TestPlaceholderResponsivenessE2E e2e;
+        status |= QTest::qExec(&e2e, argc, argv);
+    }
+    {
+        TestAdditionE2E e2e;
         status |= QTest::qExec(&e2e, argc, argv);
     }
     return status;
