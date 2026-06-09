@@ -24,3 +24,6 @@ jobs:
 
       - name: Verify main window resource
         run: grep -q '<string>Calculator</string>' forms/mainwindow.ui
+
+      - name: Verify File menu resource
+        run: grep -q '<string>&amp;File</string>' forms/mainwindow.ui && grep -q '<string>E&amp;xit</string>' forms/mainwindow.ui
