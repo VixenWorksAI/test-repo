@@ -301,26 +301,28 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="3">
-        <!-- TODO(E2): wire buttonSubtract to subtraction operation slot -->
-        <widget class="QPushButton" name="buttonSubtract">
-         <property name="text">
-          <string>-</string>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>60</width>
-           <height>48</height>
-          </size>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>1</horstretch>
-           <verstretch>1</verstretch>
-          </sizepolicy>
-         </property>
-        </widget>
-       </item>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="buttonSubtract">
+          <property name="text">
+           <string>-</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>48</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
        <item row="3" column="0">
         <widget class="QPushButton" name="button0">
          <property name="text">

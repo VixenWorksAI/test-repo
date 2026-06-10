@@ -41,13 +41,17 @@ public:
 
     QLineEdit *displayEdit() const;
     QPushButton *buttonAdd() const;
+    QPushButton *buttonSubtract() const;
     QLineEdit *firstOperandInput() const;
     QLineEdit *secondOperandInput() const;
     QLabel *statusLabel() const;
 
+    bool isSubtractButtonActive() const;
+
 signals:
     void aboutDialogRequested();
     void documentationRequested();
+    void subtractButtonActiveChanged(bool active);
 
 private slots:
     void on_actionToggle_Sidebar_triggered();
@@ -63,6 +67,9 @@ private:
     void setupViewMenu();
     void applyResponsiveLayout();
     void applyZoom(int percent);
+    void applySubtractionInputValidation();
+    void applySubtractionButtonStyle();
+    void wireSubtractButton();
 
     Ui::MainWindow *ui;
     QMenu *m_viewMenu;

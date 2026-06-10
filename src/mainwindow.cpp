@@ -3,6 +3,7 @@
 #include "calculatorcontroller.h"
 
 #include <QAction>
+#include <QDoubleValidator>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
@@ -27,6 +28,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     applyResponsiveLayout();
     setupViewMenu();
+    applySubtractionInputValidation();
+    applySubtractionButtonStyle();
+    wireSubtractButton();
 
     m_controller = new CalculatorController(firstOperandInput(),
                                            secondOperandInput(),
@@ -34,6 +38,34 @@ MainWindow::MainWindow(QWidget *parent)
                                            statusLabel(),
                                            this);
     m_controller->bind(buttonAdd());
+}
+
+void MainWindow::applySubtractionInputValidation()
+{
+    auto *firstValidator = new QDoubleValidator(firstOperandInput());
+    auto *secondValidator = new QDoubleValidator(secondOperandInput());
+    firstValidator->setNotation(QDoubleValidator::StandardNotation);
+    secondValidator->setNotation(QDoubleValidator::StandardNotation);
+    firstOperandInput()->setValidator(firstValidator);
+    secondOperandInput()->setValidator(secondValidator);
+}
+
+void MainWindow::applySubtractionButtonStyle()
+{
+    const QString activeStyle = QStringLiteral(
+        "QPushButton:checked { background-color: palette(highlight); color: palette(highlightedText); }");
+    buttonSubtract()->setStyleSheet(activeStyle);
+}
+
+void MainWindow::wireSubtractButton()
+{
+    QPushButton *button = buttonSubtract();
+    if (button == nullptr) {
+        return;
+    }
+    connect(button, &QPushButton::toggled, this, [this](bool checked) {
+        emit subtractButtonActiveChanged(checked);
+    });
 }
 
 void MainWindow::applyResponsiveLayout()
@@ -180,6 +212,19 @@ QLineEdit *MainWindow::displayEdit() const
 QPushButton *MainWindow::buttonAdd() const
 {
     return ui->buttonAdd;
+}
+
+QPushButton *MainWindow::buttonSubtract() const
+{
+    return ui->buttonSubtract;
+}
+
+bool MainWindow::isSubtractButtonActive() const
+{
+    if (buttonSubtract() == nullptr) {
+        return false;
+    }
+    return buttonSubtract()->isChecked();
 }
 
 QLineEdit *MainWindow::firstOperandInput() const
