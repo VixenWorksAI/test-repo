@@ -1,5 +1,5 @@
 # Repository Map
-_Generated: 2026-06-10T04:04:17.827Z — 0 source files indexed_
+_Generated: 2026-06-10T04:14:53.382Z — 0 source files indexed_
 
 ## Directory Tree
 build_tests/
@@ -20,7 +20,18 @@ src/
   calculatorcontroller.cpp  [144 lines]
   main.cpp  [12 lines]
   mainwindow.cpp  [303 lines]
+test/
+  e2e/
+    MultiplicationE2ETest.cpp  [164 lines]
+  integration/
+    MultiplicationIntegrationTest.cpp  [188 lines]
+  unit/
+    ArithmeticOperationsTest.cpp  [232 lines]
 tests/
+  build_test/
+    ArithmeticOperationsTest.moc  [193 lines]
+    MultiplicationE2ETest.moc  [157 lines]
+    MultiplicationIntegrationTest.moc  [165 lines]
   e2e/
     test_addition_e2e.cpp  [104 lines]
     test_addition_e2e.h  [20 lines]
@@ -79,7 +90,7 @@ tests/
     test_subtraction_unit.h  [25 lines]
     test_view_menu_unit.cpp  [123 lines]
   test_main.cpp  [106 lines]
-  test_placeholder_responsiveness  [727 lines]
+  test_placeholder_responsiveness  [715 lines]
   tests.pro  [63 lines]
 .git  [2 lines]
 .gitignore  [21 lines]
@@ -88,8 +99,10 @@ agent_plan_E2-S3-T2.json  [62 lines]
 agent_plan_E2-S3-T2.md  [64 lines]
 agent_plan_E2-S3-T3.json  [56 lines]
 agent_plan_E2-S3-T3.md  [56 lines]
+agent_plan_E2-S3-T4.json  [45 lines]
+agent_plan_E2-S3-T4.md  [50 lines]
 Calculator  [143 lines]
 Calculator.pro  [27 lines]
-REPO_MAP.md  [94 lines]
+REPO_MAP.md  [96 lines]
 
 ## Symbol Index
