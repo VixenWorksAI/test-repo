@@ -1,5 +1,5 @@
 # Repository Map
-_Generated: 2026-06-10T04:48:59.714Z — 0 source files indexed_
+_Generated: 2026-06-10T14:25:05.853Z — 0 source files indexed_
 
 ## Directory Tree
 build_tests/
@@ -22,11 +22,13 @@ src/
   mainwindow.cpp  [308 lines]
 test/
   e2e/
+    DivisionE2ETest.cpp  [235 lines]
     MultiplicationE2ETest.cpp  [164 lines]
   integration/
+    DivisionIntegrationTest.cpp  [255 lines]
     MultiplicationIntegrationTest.cpp  [188 lines]
   unit/
-    ArithmeticOperationsTest.cpp  [232 lines]
+    ArithmeticOperationsTest.cpp  [485 lines]
 tests/
   build_test/
     ArithmeticOperationsTest.moc  [193 lines]
@@ -97,7 +99,7 @@ tests/
   test_placeholder_responsiveness  [725 lines]
   tests.pro  [67 lines]
 .git  [2 lines]
-.gitignore  [21 lines]
+.gitignore  [22 lines]
 .qmake.stash  [22 lines]
 agent_plan_E2-S3-T2.json  [62 lines]
 agent_plan_E2-S3-T2.md  [64 lines]
@@ -111,8 +113,10 @@ agent_plan_E2-S4-T2.json  [43 lines]
 agent_plan_E2-S4-T2.md  [43 lines]
 agent_plan_E2-S4-T3.json  [46 lines]
 agent_plan_E2-S4-T3.md  [49 lines]
+agent_plan_E2-S4-T4.json  [39 lines]
+agent_plan_E2-S4-T4.md  [44 lines]
 Calculator  [143 lines]
 Calculator.pro  [27 lines]
-REPO_MAP.md  [111 lines]
+REPO_MAP.md  [119 lines]
 
 ## Symbol Index
