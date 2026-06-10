@@ -16,7 +16,6 @@ jobs:
           version: '6.10.0'
           host: linux
           target: desktop
-          modules: 'qtbase'
           cache: true
 
       - name: Build
