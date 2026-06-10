@@ -1,5 +1,6 @@
 #include "test_multiplication_ui_e2e.h"
 
+#include "arithmeticoperations.h"
 #include "mainwindow.h"
 
 #include <QApplication>
@@ -9,6 +10,8 @@
 #include <QSignalSpy>
 #include <QTest>
 #include <QtTest/QTest>
+#include <cfloat>
+#include <limits>
 
 TestMultiplicationUiE2E::TestMultiplicationUiE2E(QObject *parent)
     : QObject(parent)
@@ -156,4 +159,121 @@ void TestMultiplicationUiE2E::inputFieldsRejectInvalidCharacters()
     int pos = 0;
     QCOMPARE(firstValidator->validate(alphabetic, pos), QValidator::Invalid);
     QCOMPARE(secondValidator->validate(alphabetic, pos), QValidator::Invalid);
+}
+
+void TestMultiplicationUiE2E::e2eMultiplicationProducesCorrectProduct()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.show();
+    QTest::qWaitForWindowExposed(&window);
+
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+    QPushButton *multiply = window.buttonMultiply();
+
+    first->setText(QStringLiteral("8"));
+    second->setText(QStringLiteral("5"));
+
+    QSignalSpy clickedSpy(multiply, &QPushButton::clicked);
+    multiply->click();
+    QCOMPARE(clickedSpy.count(), 1);
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+    QCOMPARE(arithmetic::multiplyNumbers(a, b), 40.0);
+}
+
+void TestMultiplicationUiE2E::e2eMultiplicationWithNegativeNumbersProducesCorrectProduct()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.show();
+    QTest::qWaitForWindowExposed(&window);
+
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+    QPushButton *multiply = window.buttonMultiply();
+
+    first->setText(QStringLiteral("-7"));
+    second->setText(QStringLiteral("6"));
+
+    multiply->click();
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+    QCOMPARE(arithmetic::multiplyNumbers(a, b), -42.0);
+}
+
+void TestMultiplicationUiE2E::e2eMultiplicationWithLargeNumbersSaturates()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.show();
+    QTest::qWaitForWindowExposed(&window);
+
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+    QPushButton *multiply = window.buttonMultiply();
+
+    first->setText(QString::number(DBL_MAX));
+    second->setText(QStringLiteral("2"));
+
+    multiply->click();
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+
+    const double result = arithmetic::multiplyNumbers(a, b);
+    QCOMPARE(result, std::numeric_limits<double>::max());
+    QVERIFY(!std::isinf(result));
+}
+
+void TestMultiplicationUiE2E::e2eMultiplicationWithZeroProducesZero()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.show();
+    QTest::qWaitForWindowExposed(&window);
+
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+    QPushButton *multiply = window.buttonMultiply();
+
+    first->setText(QStringLiteral("0"));
+    second->setText(QStringLiteral("1234.5678"));
+
+    multiply->click();
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+    QCOMPARE(arithmetic::multiplyNumbers(a, b), 0.0);
 }

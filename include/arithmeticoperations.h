@@ -10,6 +10,8 @@ double addNumbers(double a, double b);
 
 double subtractNumbers(double a, double b);
 
+double multiplyNumbers(double a, double b);
+
 }
 
 #endif

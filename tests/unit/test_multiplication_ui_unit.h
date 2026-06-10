@@ -21,6 +21,15 @@ private slots:
     void secondOperandInputHasNumericValidator();
     void firstOperandInputRejectsAlpha();
     void secondOperandInputRejectsAlpha();
+
+    void multiplyPositiveByPositive();
+    void multiplyPositiveByNegative();
+    void multiplyNegativeByNegative();
+    void multiplyByZeroReturnsZero();
+    void multiplyZeroByNumberReturnsZero();
+    void multiplyLargeNumbersSaturatesToMax();
+    void multiplyLargePositiveByLargeNegativeSaturatesToMin();
+    void multiplyFractionalNumbersMaintainsPrecision();
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "test_multiplication_ui_integration.h"
 
+#include "arithmeticoperations.h"
 #include "mainwindow.h"
 
 #include <QApplication>
@@ -9,6 +10,8 @@
 #include <QSignalSpy>
 #include <QTest>
 #include <QtTest/QTest>
+#include <cfloat>
+#include <limits>
 
 TestMultiplicationUiIntegration::TestMultiplicationUiIntegration(QObject *parent)
     : QObject(parent)
@@ -138,4 +141,95 @@ void TestMultiplicationUiIntegration::multiplyButtonRespondsToMousePressAndRelea
     const QPoint center = button->rect().center();
     QTest::mouseClick(button, Qt::LeftButton, Qt::NoModifier, center);
     QVERIFY(button->isChecked());
+}
+
+void TestMultiplicationUiIntegration::multiplicationLogicProducesProductFromUiInputs()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+
+    first->setText(QStringLiteral("6"));
+    second->setText(QStringLiteral("7"));
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+    QCOMPARE(arithmetic::multiplyNumbers(a, b), 42.0);
+}
+
+void TestMultiplicationUiIntegration::multiplicationLogicHandlesNegativeNumbersFromUiInputs()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+
+    first->setText(QStringLiteral("-4"));
+    second->setText(QStringLiteral("5"));
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+    QCOMPARE(arithmetic::multiplyNumbers(a, b), -20.0);
+    QCOMPARE(arithmetic::multiplyNumbers(-4.0, -5.0), 20.0);
+}
+
+void TestMultiplicationUiIntegration::multiplicationLogicHandlesOverflowFromUiInputs()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+
+    first->setText(QString::number(DBL_MAX));
+    second->setText(QStringLiteral("2"));
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+
+    const double result = arithmetic::multiplyNumbers(a, b);
+    QCOMPARE(result, std::numeric_limits<double>::max());
+}
+
+void TestMultiplicationUiIntegration::multiplicationLogicHandlesZeroFromUiInputs()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+
+    first->setText(QStringLiteral("0"));
+    second->setText(QStringLiteral("9.81"));
+
+    bool okA = false;
+    bool okB = false;
+    const double a = first->text().toDouble(&okA);
+    const double b = second->text().toDouble(&okB);
+    QVERIFY(okA);
+    QVERIFY(okB);
+    QCOMPARE(arithmetic::multiplyNumbers(a, b), 0.0);
 }

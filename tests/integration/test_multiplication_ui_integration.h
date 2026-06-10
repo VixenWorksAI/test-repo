@@ -18,6 +18,11 @@ private slots:
     void firstAndSecondInputsAreIndependent();
     void multiplyButtonLabelIsMultiplicationGlyph();
     void multiplyButtonRespondsToMousePressAndRelease();
+
+    void multiplicationLogicProducesProductFromUiInputs();
+    void multiplicationLogicHandlesNegativeNumbersFromUiInputs();
+    void multiplicationLogicHandlesOverflowFromUiInputs();
+    void multiplicationLogicHandlesZeroFromUiInputs();
 };
 
 #endif

@@ -17,6 +17,11 @@ private slots:
     void allOperatorButtonsAreResponsive();
     void inputFieldsAcceptValidNumbers();
     void inputFieldsRejectInvalidCharacters();
+
+    void e2eMultiplicationProducesCorrectProduct();
+    void e2eMultiplicationWithNegativeNumbersProducesCorrectProduct();
+    void e2eMultiplicationWithLargeNumbersSaturates();
+    void e2eMultiplicationWithZeroProducesZero();
 };
 
 #endif

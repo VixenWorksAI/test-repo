@@ -37,4 +37,26 @@ double subtractNumbers(double a, double b)
     return rawDifference;
 }
 
+double multiplyNumbers(double a, double b)
+{
+    const double rawProduct = a * b;
+
+    if (std::isnan(rawProduct)) {
+        return 0.0;
+    }
+
+    if (std::isinf(rawProduct)) {
+        return (a > 0.0) == (b > 0.0) ? kMaxDouble : kMinDouble;
+    }
+
+    if (rawProduct > kMaxDouble) {
+        return kMaxDouble;
+    }
+    if (rawProduct < kMinDouble) {
+        return kMinDouble;
+    }
+
+    return rawProduct;
+}
+
 }
