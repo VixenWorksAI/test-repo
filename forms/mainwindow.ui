@@ -1,23 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Calculator</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">QPushButton#buttonMultiply:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:pressed { background-color: #ffe082; color: #212121; border: 2px solid #f57f17; }</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="centralLayout">
+  <widget class="QMainWindow" name="MainWindow">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>240</width>
+     <height>320</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Calculator</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#buttonMultiply:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:pressed { background-color: #ffe082; color: #212121; border: 2px solid #f57f17; }</string>
+   </property>
+   <widget class="QWidget" name="centralwidget">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <layout class="QVBoxLayout" name="centralLayout">
+     <property name="leftMargin">
+      <number>8</number>
+     </property>
+     <property name="topMargin">
+      <number>8</number>
+     </property>
+     <property name="rightMargin">
+      <number>8</number>
+     </property>
+     <property name="bottomMargin">
+      <number>8</number>
+     </property>
+     <property name="spacing">
+      <number>6</number>
+     </property>
     <!-- TODO(E2): displayEdit is the result channel for arithmetic operations. -->
     <item>
      <widget class="QLineEdit" name="displayEdit">
@@ -74,7 +101,7 @@
         <height>0</height>
        </size>
       </property>
-      <layout class="QGridLayout" name="keypadGridLayout">
+      <layout class="QGridLayout" name="keypadGridLayout" rowstretch="1,1,1,1" columnstretch="1,1,1,1">
        <property name="leftMargin">
         <number>8</number>
        </property>
@@ -430,6 +457,12 @@
     </item>
     <item>
      <widget class="QLineEdit" name="firstOperandInput">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="placeholderText">
        <string>Enter first number</string>
       </property>
@@ -444,6 +477,12 @@
     </item>
     <item>
      <widget class="QLineEdit" name="secondOperandInput">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="placeholderText">
        <string>Enter second number</string>
       </property>
