@@ -1,7 +1,9 @@
 # Repository Map
-_Generated: 2026-06-10T14:25:05.853Z — 0 source files indexed_
+_Generated: 2026-06-10T14:29:55.614Z — 1 source files indexed_
 
 ## Directory Tree
+app/
+  layout.tsx  [14 lines]
 build_tests/
   test_placeholder_responsiveness  [690 lines]
 docs/
@@ -115,8 +117,13 @@ agent_plan_E2-S4-T3.json  [46 lines]
 agent_plan_E2-S4-T3.md  [49 lines]
 agent_plan_E2-S4-T4.json  [39 lines]
 agent_plan_E2-S4-T4.md  [44 lines]
+agent_plan_E3-S1-T1.json  [49 lines]
+agent_plan_E3-S1-T1.md  [49 lines]
 Calculator  [143 lines]
 Calculator.pro  [27 lines]
-REPO_MAP.md  [119 lines]
+REPO_MAP.md  [123 lines]
 
 ## Symbol Index
+
+### app/layout.tsx
+- default (LayoutPlaceholder)
