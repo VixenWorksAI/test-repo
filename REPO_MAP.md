@@ -1,5 +1,5 @@
 # Repository Map
-_Generated: 2026-06-10T14:46:40.946Z — 1 source files indexed_
+_Generated: 2026-06-10T14:55:48.679Z — 1 source files indexed_
 
 ## Directory Tree
 app/
@@ -13,15 +13,15 @@ forms/
   mainwindow.ui  [674 lines]
 include/
   arithmeticoperations.h  [20 lines]
-  calculatorcontroller.h  [44 lines]
-  mainwindow.h  [95 lines]
+  calculatorcontroller.h  [47 lines]
+  mainwindow.h  [96 lines]
 resources/
   resources.qrc  [6 lines]
 src/
   arithmeticoperations.cpp  [71 lines]
-  calculatorcontroller.cpp  [181 lines]
+  calculatorcontroller.cpp  [187 lines]
   main.cpp  [12 lines]
-  mainwindow.cpp  [309 lines]
+  mainwindow.cpp  [319 lines]
 test/
   e2e/
     DivisionE2ETest.cpp  [235 lines]
@@ -95,6 +95,7 @@ tests/
     test_subtraction_unit.cpp  [97 lines]
     test_subtraction_unit.h  [25 lines]
     test_view_menu_unit.cpp  [123 lines]
+  test_calculation_logic_realtime.cpp  [317 lines]
   test_division_ui_logic_integration.cpp  [124 lines]
   test_division_ui_logic_integration.h  [20 lines]
   test_main.cpp  [116 lines]
@@ -127,9 +128,11 @@ agent_plan_E3-S2-T1.json  [42 lines]
 agent_plan_E3-S2-T1.md  [45 lines]
 agent_plan_E3-S2-T2.json  [36 lines]
 agent_plan_E3-S2-T2.md  [41 lines]
+agent_plan_E3-S2-T3.json  [46 lines]
+agent_plan_E3-S2-T3.md  [49 lines]
 Calculator  [143 lines]
 Calculator.pro  [27 lines]
-REPO_MAP.md  [136 lines]
+REPO_MAP.md  [138 lines]
 
 ## Symbol Index
 
