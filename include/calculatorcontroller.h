@@ -23,6 +23,9 @@ public:
     void bindMultiply(QPushButton *multiplyButton);
     void bindDivide(QPushButton *divideButton);
 
+signals:
+    void displayUpdated(const QString &text) const;
+
 public slots:
     void onAddButtonClicked();
     void onSubtractButtonClicked();

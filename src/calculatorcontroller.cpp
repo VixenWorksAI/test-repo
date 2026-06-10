@@ -73,6 +73,7 @@ void CalculatorController::onAddButtonClicked()
     const double sum = arithmetic::addNumbers(first, second);
     m_resultDisplay->setText(QString::number(sum));
     clearError();
+    emit displayUpdated(m_resultDisplay->text());
 }
 
 void CalculatorController::onSubtractButtonClicked()
@@ -96,6 +97,7 @@ void CalculatorController::onSubtractButtonClicked()
     const double difference = arithmetic::subtractNumbers(first, second);
     m_resultDisplay->setText(QString::number(difference));
     clearError();
+    emit displayUpdated(m_resultDisplay->text());
 }
 
 void CalculatorController::onMultiplyButtonClicked()
@@ -119,6 +121,7 @@ void CalculatorController::onMultiplyButtonClicked()
     const double product = arithmetic::multiplyNumbers(first, second);
     m_resultDisplay->setText(QString::number(product));
     clearError();
+    emit displayUpdated(m_resultDisplay->text());
 }
 
 void CalculatorController::onDivideButtonClicked()
@@ -146,6 +149,7 @@ void CalculatorController::onDivideButtonClicked()
     }
     m_resultDisplay->setText(QString::number(quotient));
     clearError();
+    emit displayUpdated(m_resultDisplay->text());
 }
 
 bool CalculatorController::parseOperand(const QString &raw, double &out) const
@@ -170,6 +174,8 @@ void CalculatorController::setError(const QString &message)
     if (m_statusLabel != nullptr) {
         m_statusLabel->setText(message);
     }
+    emit displayUpdated(m_resultDisplay != nullptr ? m_resultDisplay->text()
+                                                   : QString());
 }
 
 void CalculatorController::clearError()

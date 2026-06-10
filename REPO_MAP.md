@@ -1,32 +1,36 @@
 # Repository Map
-_Generated: 2026-06-10T04:48:59.714Z — 0 source files indexed_
+_Generated: 2026-06-10T14:58:58.993Z — 1 source files indexed_
 
 ## Directory Tree
+app/
+  layout.tsx  [14 lines]
 build_tests/
   test_placeholder_responsiveness  [690 lines]
 docs/
   ui/
     mainwindow-placeholders.md  [62 lines]
 forms/
-  mainwindow.ui  [635 lines]
+  mainwindow.ui  [674 lines]
 include/
   arithmeticoperations.h  [20 lines]
-  calculatorcontroller.h  [44 lines]
-  mainwindow.h  [95 lines]
+  calculatorcontroller.h  [47 lines]
+  mainwindow.h  [96 lines]
 resources/
   resources.qrc  [6 lines]
 src/
   arithmeticoperations.cpp  [71 lines]
-  calculatorcontroller.cpp  [181 lines]
+  calculatorcontroller.cpp  [187 lines]
   main.cpp  [12 lines]
-  mainwindow.cpp  [308 lines]
+  mainwindow.cpp  [319 lines]
 test/
   e2e/
+    DivisionE2ETest.cpp  [235 lines]
     MultiplicationE2ETest.cpp  [164 lines]
   integration/
+    DivisionIntegrationTest.cpp  [255 lines]
     MultiplicationIntegrationTest.cpp  [188 lines]
   unit/
-    ArithmeticOperationsTest.cpp  [232 lines]
+    ArithmeticOperationsTest.cpp  [485 lines]
 tests/
   build_test/
     ArithmeticOperationsTest.moc  [193 lines]
@@ -91,13 +95,14 @@ tests/
     test_subtraction_unit.cpp  [97 lines]
     test_subtraction_unit.h  [25 lines]
     test_view_menu_unit.cpp  [123 lines]
+  test_calculation_logic_realtime.cpp  [317 lines]
   test_division_ui_logic_integration.cpp  [124 lines]
   test_division_ui_logic_integration.h  [20 lines]
   test_main.cpp  [116 lines]
   test_placeholder_responsiveness  [725 lines]
   tests.pro  [67 lines]
 .git  [2 lines]
-.gitignore  [21 lines]
+.gitignore  [22 lines]
 .qmake.stash  [22 lines]
 agent_plan_E2-S3-T2.json  [62 lines]
 agent_plan_E2-S3-T2.md  [64 lines]
@@ -111,8 +116,29 @@ agent_plan_E2-S4-T2.json  [43 lines]
 agent_plan_E2-S4-T2.md  [43 lines]
 agent_plan_E2-S4-T3.json  [46 lines]
 agent_plan_E2-S4-T3.md  [49 lines]
+agent_plan_E2-S4-T4.json  [39 lines]
+agent_plan_E2-S4-T4.md  [44 lines]
+agent_plan_E3-S1-T1.json  [49 lines]
+agent_plan_E3-S1-T1.md  [49 lines]
+agent_plan_E3-S1-T2.json  [48 lines]
+agent_plan_E3-S1-T2.md  [48 lines]
+agent_plan_E3-S1-T3.json  [38 lines]
+agent_plan_E3-S1-T3.md  [43 lines]
+agent_plan_E3-S2-T1.json  [42 lines]
+agent_plan_E3-S2-T1.md  [45 lines]
+agent_plan_E3-S2-T2.json  [36 lines]
+agent_plan_E3-S2-T2.md  [41 lines]
+agent_plan_E3-S2-T3.json  [46 lines]
+agent_plan_E3-S2-T3.md  [49 lines]
+agent_plan_E3-S3-T1.json  [44 lines]
+agent_plan_E3-S3-T1.md  [46 lines]
+agent_plan_E3-S3-T2.json  [41 lines]
+agent_plan_E3-S3-T2.md  [43 lines]
 Calculator  [143 lines]
 Calculator.pro  [27 lines]
-REPO_MAP.md  [111 lines]
+REPO_MAP.md  [143 lines]
 
 ## Symbol Index
+
+### app/layout.tsx
+- default (LayoutPlaceholder)

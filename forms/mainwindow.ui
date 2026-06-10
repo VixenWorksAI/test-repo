@@ -1,23 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <ui version="4.0">
+  <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Calculator</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">QPushButton#buttonMultiply:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:pressed { background-color: #ffe082; color: #212121; border: 2px solid #f57f17; }</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="centralLayout">
+  <widget class="QMainWindow" name="MainWindow">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>320</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>320</width>
+     <height>480</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Calculator</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMainWindow { background-color: #1e1f24; }
+QLabel { color: #f4f5f7; font-family: 'Helvetica Neue', 'Segoe UI', sans-serif; font-size: 12px; }
+QLineEdit#displayEdit {
+  background-color: #2a2c33;
+  color: #f4f5f7;
+  border: 1px solid #3a3d45;
+  border-radius: 8px;
+  padding: 12px 16px;
+  selection-background-color: #4a4d55;
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+QLineEdit#firstOperandInput, QLineEdit#secondOperandInput {
+  background-color: #2a2c33;
+  color: #f4f5f7;
+  border: 1px solid #3a3d45;
+  border-radius: 6px;
+  padding: 6px 10px;
+  selection-background-color: #4a4d55;
+  min-height: 24px;
+}
+QStatusBar { background-color: #1e1f24; color: #9aa0a6; font-size: 11px; }
+QMenuBar { background-color: #1e1f24; color: #f4f5f7; padding: 2px 4px; }
+QMenuBar::item:selected { background-color: #3a3d45; border-radius: 4px; }
+QMenu { background-color: #2a2c33; color: #f4f5f7; border: 1px solid #3a3d45; padding: 4px 0; }
+QMenu::item { padding: 6px 24px 6px 12px; border-radius: 4px; }
+QMenu::item:selected { background-color: #4a4d55; }
+QPushButton {
+  background-color: #3a3d45;
+  color: #f4f5f7;
+  border: 1px solid #4a4d55;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 28px;
+}
+QPushButton:hover { background-color: #4a4d55; }
+QPushButton:pressed { background-color: #5a5d65; }
+QPushButton:disabled { background-color: #2a2c33; color: #6a6d75; }
+QPushButton#button0, QPushButton#button1, QPushButton#button2,
+QPushButton#button3, QPushButton#button4, QPushButton#button5,
+QPushButton#button6, QPushButton#button7, QPushButton#button8,
+QPushButton#button9, QPushButton#buttonDecimal {
+  background-color: #2a2c33;
+  font-weight: 600;
+}
+QPushButton#button0:hover, QPushButton#button1:hover, QPushButton#button2:hover,
+QPushButton#button3:hover, QPushButton#button4:hover, QPushButton#button5:hover,
+QPushButton#button6:hover, QPushButton#button7:hover, QPushButton#button8:hover,
+QPushButton#button9:hover, QPushButton#buttonDecimal:hover {
+  background-color: #3a3d45;
+}
+QPushButton#buttonAdd, QPushButton#buttonMultiply, QPushButton#buttonDivide {
+  background-color: #ff8a3d;
+  color: #1e1f24;
+  border: 1px solid #ff8a3d;
+  font-weight: 600;
+}
+QPushButton#buttonAdd:hover, QPushButton#buttonMultiply:hover, QPushButton#buttonDivide:hover {
+  background-color: #ff9d5c;
+}
+QPushButton#buttonAdd:pressed, QPushButton#buttonMultiply:pressed, QPushButton#buttonDivide:pressed {
+  background-color: #ffe082;
+  color: #212121;
+  border: 2px solid #f57f17;
+}
+QPushButton#buttonMultiply:checked, QPushButton#buttonDivide:checked {
+  background-color: #ffd54f;
+  color: #212121;
+  border: 2px solid #f57f17;
+}
+QPushButton#buttonAdd:checked {
+  background-color: #ffd54f;
+  color: #212121;
+  border: 2px solid #f57f17;
+}
+QPushButton#buttonEquals {
+  background-color: #4a8af4;
+  color: #f4f5f7;
+  border: 1px solid #4a8af4;
+  font-weight: 700;
+  font-size: 18px;
+}
+QPushButton#buttonEquals:hover { background-color: #5e9af7; }
+QPushButton#buttonEquals:pressed { background-color: #3a78d8; }</string>
+   </property>
+   <widget class="QWidget" name="centralwidget">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+     <layout class="QVBoxLayout" name="centralLayout">
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>12</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>12</number>
+      </property>
+      <property name="spacing">
+       <number>12</number>
+      </property>
     <!-- TODO(E2): displayEdit is the result channel for arithmetic operations. -->
     <item>
      <widget class="QLineEdit" name="displayEdit">
@@ -55,9 +167,6 @@
         <bold>true</bold>
        </font>
       </property>
-      <property name="objectName" stdset="0">
-       <string notr="true">displayEdit</string>
-      </property>
      </widget>
     </item>
     <item>
@@ -74,18 +183,18 @@
         <height>0</height>
        </size>
       </property>
-      <layout class="QGridLayout" name="keypadGridLayout">
+      <layout class="QGridLayout" name="keypadGridLayout" rowstretch="1,1,1,1" columnstretch="1,1,1,1">
        <property name="leftMargin">
-        <number>8</number>
+        <number>0</number>
        </property>
        <property name="topMargin">
-        <number>8</number>
+        <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>8</number>
+        <number>0</number>
        </property>
        <property name="bottomMargin">
-        <number>8</number>
+        <number>0</number>
        </property>
        <property name="horizontalSpacing">
         <number>6</number>
@@ -430,6 +539,12 @@
     </item>
     <item>
      <widget class="QLineEdit" name="firstOperandInput">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="placeholderText">
        <string>Enter first number</string>
       </property>
@@ -444,6 +559,12 @@
     </item>
     <item>
      <widget class="QLineEdit" name="secondOperandInput">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="placeholderText">
        <string>Enter second number</string>
       </property>
