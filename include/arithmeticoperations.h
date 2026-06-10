@@ -8,6 +8,8 @@ constexpr double kMinDouble = -1.7976931348623157e308;
 
 double addNumbers(double a, double b);
 
+double subtractNumbers(double a, double b);
+
 }
 
 #endif
