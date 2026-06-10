@@ -56,6 +56,7 @@ signals:
     void subtractButtonActiveChanged(bool active);
 
 private slots:
+    void updateDisplay(const QString &text);
     void on_actionToggle_Sidebar_triggered();
     void on_actionToggle_Statusbar_triggered();
     void on_actionToggle_Main_Toolbar_triggered();
