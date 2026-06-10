@@ -2,30 +2,37 @@ name: build-verification
 
 on:
   push:
-    branches: [main, agent/**]
   pull_request:
-    branches: [main, agent/**]
 
 jobs:
-  build-linux:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Qt6 and build tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y qt6-base-dev qt6-tools-dev build-essential
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.10.0'
+          host: linux
+          target: desktop
+          modules: 'qtbase'
+          cache: true
 
-      - name: Verify qmake6 is available
-        run: qmake6 --version
+      - name: Build
+        run: qmake Calculator.pro && make -j$(nproc)
 
-      - name: Generate Makefile with qmake
-        run: qmake6 Calculator.pro -o build/Makefile
+      - name: Verify main window resource
+        run: grep -q '<string>Calculator</string>' forms/mainwindow.ui
 
-      - name: Build with make
-        run: make -C build -j$(nproc)
+      - name: Verify File menu resource
+        run: grep -q '<string>&amp;File</string>' forms/mainwindow.ui && grep -q '<string>E&amp;xit</string>' forms/mainwindow.ui
 
-      - name: Verify binary was produced
-        run: test -f build/Calculator
+      - name: Verify Edit menu resource
+        run: grep -q '<string>&amp;Edit</string>' forms/mainwindow.ui && grep -q '<string>&amp;Copy</string>' forms/mainwindow.ui && grep -q '<string>&amp;Paste</string>' forms/mainwindow.ui
+
+      - name: Verify View menu resource
+        run: grep -q '<string>&amp;View</string>' forms/mainwindow.ui && grep -q '<string>Toggle &amp;Sidebar</string>' forms/mainwindow.ui && grep -q '<string>Toggle &amp;Status Bar</string>' forms/mainwindow.ui && grep -q '<string>Zoom &amp;In</string>' forms/mainwindow.ui && grep -q '<string>Zoom &amp;Out</string>' forms/mainwindow.ui && grep -q '<string>&amp;Reset Zoom</string>' forms/mainwindow.ui
+
+      - name: Verify Help menu resource
+        run: grep -q '<string>&amp;Help</string>' forms/mainwindow.ui && grep -q '<string>&amp;About</string>' forms/mainwindow.ui && grep -q '<string>&amp;Documentation</string>' forms/mainwindow.ui

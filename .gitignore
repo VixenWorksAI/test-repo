@@ -1,4 +1,6 @@
+
 build/
+build_check/
 *.o
 *.obj
 moc_*.cpp
@@ -9,3 +11,11 @@ Makefile
 *.pro.user
 *.pro.user.*
 *.qm
+tests/*/test_*.moc
+tests/build-*/
+tests/menu-integration-*
+Calculator
+.artifacts/
+tests/test_*
+# Repo map sidecar (generated — do not commit)
+.repo_map_index.json

@@ -1,0 +1,48 @@
+# Agent Plan — E2-S4-T3
+
+_Generated: 2026-06-10T04:34:06.108Z_
+
+## Ticket analysis
+Task E2-S4-T3 requires wiring the DivisionUI component to the divideNumbers logic function inside the CalculatorController, and surfacing results (including division-by-zero errors) in the ResultDisplay component. The integration must follow the MVVM pattern: the controller mediates between UI events (onDivideButtonClick) and the pure logic layer, keeping arithmetic logic separate from UI rendering. The prior tasks (E2-S4-T1 and E2-S4-T2) have already created the DivisionUI component and the divideNumbers logic function, so this task is purely about connecting them through the controller and ensuring ResultDisplay reflects the outcome.
+
+## Orientation
+The repo has been built incrementally by prior agent tasks. The relevant directories are components/, controllers/, and tests/. E2-S4-T1 created a DivisionUI component and E2-S4-T2 implemented divideNumbers logic. The multiplication sprint (E2-S3-T3) established the pattern for connecting UI and logic via CalculatorController, so that pattern should be followed here. The wiring list explicitly identifies controllers/CalculatorController.tsx and components/ResultDisplay.tsx as the files to extend. The project is a Qt 6.10 / C++ desktop app despite the .tsx extension on wiring files (likely pseudo-paths used by the agent framework). Tests should be added in the tests/ directory following the JUnit 8 for Qt-compatible C++ convention established by prior tasks.
+
+## Files to create
+- tests/test_division_ui_logic_integration.cpp
+
+## Files to modify
+- controllers/CalculatorController.tsx
+- components/ResultDisplay.tsx
+
+## Files to read (before editing)
+- controllers/CalculatorController.tsx
+- components/ResultDisplay.tsx
+- components/DivisionUI.tsx
+- models/divideNumbers.cpp
+- models/divideNumbers.h
+- tests/test_placeholder_responsiveness
+
+## Implementation order
+1. 1. Read controllers/CalculatorController.tsx to understand the existing multiplication wiring pattern (onMultiplyButtonClick, slot structure, divideNumbers hook-in points).
+2. 2. Read components/ResultDisplay.tsx to understand how results and errors are currently displayed.
+3. 3. Read components/DivisionUI.tsx to understand its signal/input interface (dividend and divisor fields, divide button signal).
+4. 4. Read models/divideNumbers.h and models/divideNumbers.cpp to understand the divideNumbers function signature and how division-by-zero is surfaced (return value, exception, or error string).
+5. 5. Extend controllers/CalculatorController.tsx: add the onDivideButtonClick slot that reads dividend and divisor inputs from DivisionUI, calls divideNumbers, and emits the result or a division-by-zero error message to ResultDisplay via its display interface.
+6. 6. Extend components/ResultDisplay.tsx: ensure it has a path to display error strings (e.g. 'Error: Division by zero') distinctly from numeric results, adding an error display state if not already present.
+7. 7. Create tests/test_division_ui_logic_integration.cpp with: (a) unit test verifying onDivideButtonClick correctly processes valid inputs through divideNumbers and updates ResultDisplay; (b) unit test verifying division-by-zero yields a visible error message in ResultDisplay; (c) integration test verifying the signal-slot chain from DivisionUI button click through CalculatorController to ResultDisplay output.
+
+## Acceptance criteria mapping
+- AC: AC1: User-initiated division operations yield expected outcomes on display. Division by zero issues are visibly reported. → Step 5 wires onDivideButtonClick in CalculatorController to call divideNumbers and route the numeric result to ResultDisplay. Step 6 ensures ResultDisplay can render an error string distinctly. Step 7 provides unit and integration tests validating both the happy path and the division-by-zero error path.
+
+## Out of scope (do NOT do)
+- Do not create or modify any build system files (CMakeLists.txt, .pro files, Makefile) beyond what is strictly needed.
+- Do not alter the divideNumbers logic implementation (that belongs to E2-S4-T2).
+- Do not alter the DivisionUI component layout or styling (that belongs to E2-S4-T1).
+- Do not introduce cloud, authentication, or backend service integrations.
+- Do not create a separate directory structure or parallel tree outside components/, controllers/, and tests/.
+- Do not add E2E test infrastructure (frameworks or runners) that does not already exist in the repo; limit new tests to the existing JUnit 8 / Qt-compatible C++ pattern.
+- Do not change multiplication, addition, or subtraction wiring already established by prior tasks.
+
+## Rationale
+The two wiring files (CalculatorController.tsx and ResultDisplay.tsx) are the primary deliverables mandated by the task. A new test file (tests/test_division_ui_logic_integration.cpp) is justified by the explicit test requirements (unit, integration) in the acceptance criteria and follows the established tests/ directory pattern from prior tasks. No other new files are needed because DivisionUI and divideNumbers already exist from E2-S4-T1 and E2-S4-T2 respectively. The .tsx extension on the wiring files is treated as the canonical agent-framework path identifier for what are effectively C++/Qt source files in the project.

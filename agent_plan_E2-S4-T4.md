@@ -1,0 +1,43 @@
+# Agent Plan — E2-S4-T4
+
+_Generated: 2026-06-10T04:49:26.609Z_
+
+## Ticket analysis
+Task E2-S4-T4 requires crafting comprehensive tests for the division functionality of a Qt-based C++ desktop calculator application. The tests must cover unit-level validation (including division by zero, floating-point precision, normal inputs, and edge cases), integration-level validation (ensuring the division UI correctly wires to the logic layer via Qt signals/slots), and end-to-end validation (simulating the full user interaction path from input to displayed output). The existing wiring files must be extended with these test cases without duplicating or creating parallel test structures.
+
+## Orientation
+The repo has zero total files detected by the map summary, but the declared wiring lists three test files that must exist or be created under test/unit/, test/integration/, and test/e2e/. Recent commits confirm that division UI, logic, and wiring were implemented in tasks E2-S4-T1 through E2-S4-T3, and a multiplication test pattern was established in E2-S3-T4 which provides a prior art template. The project uses Qt 6.10 with C++ in a monolithic structure, and the testing framework is described as 'JUnit 8 for Qt-compatible C++' (practically QTest in Qt). No guardrail path denies are active and no dependency block action is set.
+
+## Files to create
+- test/unit/ArithmeticOperationsTest.cpp
+- test/integration/DivisionIntegrationTest.cpp
+- test/e2e/DivisionE2ETest.cpp
+
+## Files to modify
+- (none)
+
+## Files to read (before editing)
+- test/unit/ArithmeticOperationsTest.cpp
+- test/integration/DivisionIntegrationTest.cpp
+- test/e2e/DivisionE2ETest.cpp
+
+## Implementation order
+1. 1. Read test/unit/ArithmeticOperationsTest.cpp to check if it already exists with prior multiplication or other tests; extend or create it with division unit tests covering: normal division (positive/positive, negative/positive, positive/negative, negative/negative), division by zero (integer and double), division resulting in fractional output, large number division, very small number division, division of zero by non-zero, and floating-point precision validation.
+2. 2. Read test/integration/DivisionIntegrationTest.cpp to check existing content; extend or create it with integration tests that instantiate the calculator's main window or controller, simulate entering two numeric values and selecting the division operation via Qt signals/slots, and verify the output matches the expected result including the error message path for division by zero.
+3. 3. Read test/e2e/DivisionE2ETest.cpp to check existing content; extend or create it with end-to-end tests using QTest and QSignalSpy (or equivalent) that simulate full user interactions—clicking digit buttons, clicking the divide operator button, clicking equals, and asserting the display widget shows the correct result or error string for all key scenarios including division by zero.
+4. 4. Ensure all three files compile against the Qt 6.10 test infrastructure (include QTest, use QTEST_MAIN or equivalent macro, declare test slots with private Q_SLOTS), following the same conventions established by the multiplication tests in E2-S3-T4.
+5. 5. Verify that floating-point comparisons use a tolerance-based approach (qFuzzyCompare or QGSVERIFY with epsilon) to address the known floating-point precision risk across systems.
+
+## Acceptance criteria mapping
+- AC: AC1: All tests confirm operation reliability and correctness across all scenarios. → Steps 1–5: Unit tests in ArithmeticOperationsTest.cpp validate all division input cases including zero divisors and precision; integration tests in DivisionIntegrationTest.cpp verify UI-to-logic wiring; E2E tests in DivisionE2ETest.cpp validate the full input-to-display path for division.
+
+## Out of scope (do NOT do)
+- Do not modify any source (non-test) files such as division logic or UI implementation files.
+- Do not create new directories outside test/unit/, test/integration/, and test/e2e/.
+- Do not add or modify CMakeLists.txt, .pro files, or any build system files unless the wiring explicitly requires it.
+- Do not implement or change any arithmetic logic—tests only.
+- Do not introduce a new test framework; use the Qt-compatible testing approach (QTest) consistent with the project's stated framework.
+- Do not create test helper or fixture files outside the three declared wiring files.
+
+## Rationale
+All three files are listed explicitly in the wiring, making them the authorised locations for this task's output. Since the repo map shows 0 total files, these files likely do not exist yet and must be created. The filesToModify list is empty because if they do exist they will be read first and then updated (the implementer should extend, not overwrite). No new files beyond the wiring are justified by the acceptance criteria, which only require test correctness and completeness within the declared test suite structure.

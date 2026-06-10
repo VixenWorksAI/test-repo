@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+ <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
@@ -13,10 +13,622 @@
   <property name="windowTitle">
    <string>Calculator</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <property name="styleSheet">
+   <string notr="true">QPushButton#buttonMultiply:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:pressed { background-color: #ffe082; color: #212121; border: 2px solid #f57f17; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="centralLayout">
+    <!-- TODO(E2): displayEdit is the result channel for arithmetic operations. -->
+    <item>
+     <widget class="QLineEdit" name="displayEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="objectName" stdset="0">
+       <string notr="true">displayEdit</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="keypadPlaceholder" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QGridLayout" name="keypadGridLayout">
+       <property name="leftMargin">
+        <number>8</number>
+       </property>
+       <property name="topMargin">
+        <number>8</number>
+       </property>
+       <property name="rightMargin">
+        <number>8</number>
+       </property>
+       <property name="bottomMargin">
+        <number>8</number>
+       </property>
+       <property name="horizontalSpacing">
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>6</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="button7">
+         <property name="text">
+          <string>7</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="button8">
+         <property name="text">
+          <string>8</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="button9">
+         <property name="text">
+          <string>9</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <!-- TODO(E2): wire buttonDivide to division operation slot -->
+        <widget class="QPushButton" name="buttonDivide">
+         <property name="text">
+          <string>/</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="button4">
+         <property name="text">
+          <string>4</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="button5">
+         <property name="text">
+          <string>5</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="button6">
+         <property name="text">
+          <string>6</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="buttonMultiply">
+          <property name="text">
+           <string>*</string>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>48</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="objectName">
+           <string>buttonMultiply</string>
+          </property>
+         </widget>
+        </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="button1">
+         <property name="text">
+          <string>1</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="button2">
+         <property name="text">
+          <string>2</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="button3">
+         <property name="text">
+          <string>3</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="buttonSubtract">
+          <property name="text">
+           <string>-</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>48</height>
+           </size>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="button0">
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="buttonDecimal">
+         <property name="text">
+          <string>.</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <!-- TODO(E2): wire buttonEquals to evaluation/result slot -->
+        <widget class="QPushButton" name="buttonEquals">
+         <property name="text">
+          <string>=</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <!-- TODO(E2): wire buttonAdd to addition operation slot -->
+        <widget class="QPushButton" name="buttonAdd">
+         <property name="text">
+          <string>+</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="firstOperandLabel">
+      <property name="text">
+       <string>First number:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="firstOperandInput">
+      <property name="placeholderText">
+       <string>Enter first number</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="secondOperandLabel">
+      <property name="text">
+       <string>Second number:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="secondOperandInput">
+      <property name="placeholderText">
+       <string>Enter second number</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="statusLabel">
+      <property name="text">
+       <string></string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menuToolbars">
+     <property name="title">
+      <string>&amp;Toolbars</string>
+     </property>
+     <addaction name="actionToggle_Main_Toolbar"/>
+    </widget>
+    <addaction name="actionToggle_Sidebar"/>
+    <addaction name="actionToggle_Statusbar"/>
+    <addaction name="menuToolbars"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="actionReset_Zoom"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionDocumentation"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="statusTip">
+    <string>Quit the application</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>&amp;Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+   <property name="statusTip">
+    <string>Copy selected content to the clipboard</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>&amp;Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+   <property name="statusTip">
+    <string>Paste clipboard content at the cursor</string>
+   </property>
+  </action>
+  <action name="actionToggle_Sidebar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toggle &amp;Sidebar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the sidebar panel</string>
+   </property>
+  </action>
+  <action name="actionToggle_Statusbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toggle &amp;Status Bar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the status bar</string>
+   </property>
+  </action>
+  <action name="actionToggle_Main_Toolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Toggle Main Toolbar</string>
+   </property>
+   <property name="statusTip">
+    <string>Show or hide the main toolbar</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom &amp;In</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+   <property name="statusTip">
+    <string>Increase the zoom level</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom &amp;Out</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+   <property name="statusTip">
+    <string>Decrease the zoom level</string>
+   </property>
+  </action>
+  <action name="actionReset_Zoom">
+   <property name="text">
+    <string>&amp;Reset Zoom</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
+   <property name="statusTip">
+    <string>Restore the default zoom level</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="statusTip">
+    <string>Show information about the application</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>&amp;Documentation</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the application documentation</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
 </ui>
+
