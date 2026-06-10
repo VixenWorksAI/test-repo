@@ -8,11 +8,17 @@ class TestAdditionUnit : public QObject
     Q_OBJECT
 
 private slots:
-    void additionOfTwoPositiveNumbers();
-    void additionOfTwoNegativeNumbers();
-    void additionOfLargeAndSmallPreservesPrecision();
-    void additionOverflowClampsToMaxDouble();
-    void additionUnderflowClampsToMinDouble();
+    void addTwoPositiveIntegers();
+    void addTwoNegativeIntegers();
+    void addPositiveAndNegative();
+    void addWithZero();
+    void addTwoZeros();
+    void addFractionalValues();
+    void addVerySmallFractionalValues();
+    void addMaxDoubleMagnitudes();
+    void addOppositeNearMaxYieldsNearZero();
+    void addReturnsExactIntegerSum();
+    void addProducesNegativeResult();
 };
 
 #endif

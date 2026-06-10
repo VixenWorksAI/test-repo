@@ -8,8 +8,12 @@ class TestAdditionE2E : public QObject
     Q_OBJECT
 
 private slots:
-    void additionFlowUpdatesDisplay();
-    void additionOverflowFlowUpdatesDisplay();
+    void userAddsTwoPositiveIntegersEndToEnd();
+    void userAddsNegativeNumbersEndToEnd();
+    void userAddsMixedSignsEndToEnd();
+    void userAddsZeroEndToEnd();
+    void userEntersInvalidTextAndReceivesError();
+    void userRecoversFromInvalidEntryAndComputesAgain();
 };
 
 #endif

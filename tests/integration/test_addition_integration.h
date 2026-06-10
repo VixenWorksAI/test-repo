@@ -8,9 +8,12 @@ class TestAdditionIntegration : public QObject
     Q_OBJECT
 
 private slots:
-    void additionResultIsDisplayedInMainWindow();
-    void additionWithNegativeOperandsIsDisplayedInMainWindow();
-    void additionOverflowClampIsDisplayedInMainWindow();
+    void resultDisplayShowsSumForPositiveIntegers();
+    void resultDisplayShowsSumForNegativeIntegers();
+    void resultDisplayShowsSumForMixedSigns();
+    void resultDisplayShowsSumWithZero();
+    void invalidInputSetsErrorAndClearsResult();
+    void statusLabelClearsAfterSuccessfulAdd();
 };
 
 #endif
