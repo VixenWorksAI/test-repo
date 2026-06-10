@@ -12,6 +12,8 @@ double subtractNumbers(double a, double b);
 
 double multiplyNumbers(double a, double b);
 
+double divideNumbers(double a, double b);
+
 }
 
 #endif

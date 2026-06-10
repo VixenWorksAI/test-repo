@@ -23,6 +23,7 @@
 #include "test_multiplication_ui_unit.h"
 #include "test_multiplication_ui_integration.h"
 #include "test_multiplication_ui_e2e.h"
+#include "test_division_unit.h"
 
 int main(int argc, char *argv[])
 {
@@ -47,6 +48,10 @@ int main(int argc, char *argv[])
     }
     {
         TestMultiplicationUiUnit unit;
+        status |= QTest::qExec(&unit, argc, argv);
+    }
+    {
+        TestDivisionUnit unit;
         status |= QTest::qExec(&unit, argc, argv);
     }
     {

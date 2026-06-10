@@ -59,4 +59,12 @@ double multiplyNumbers(double a, double b)
     return rawProduct;
 }
 
+double divideNumbers(double a, double b)
+{
+    if (b == 0.0) {
+        return std::numeric_limits<double>::quiet_NaN();
+    }
+    return a / b;
+}
+
 }

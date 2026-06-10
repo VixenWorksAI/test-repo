@@ -19,6 +19,7 @@ SOURCES += \
     $$PWD/unit/test_subtraction_unit.cpp \
     $$PWD/unit/test_subtraction_ui_unit.cpp \
     $$PWD/unit/test_multiplication_ui_unit.cpp \
+    $$PWD/unit/test_division_unit.cpp \
     $$PWD/integration/test_placeholder_responsiveness_integration.cpp \
     $$PWD/integration/test_addition_integration.cpp \
     $$PWD/integration/test_calculator_controller_integration.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     $$PWD/unit/test_subtraction_unit.h \
     $$PWD/unit/test_subtraction_ui_unit.h \
     $$PWD/unit/test_multiplication_ui_unit.h \
+    $$PWD/unit/test_division_unit.h \
     $$PWD/integration/test_placeholder_responsiveness_integration.h \
     $$PWD/integration/test_addition_integration.h \
     $$PWD/integration/test_calculator_controller_integration.h \
