@@ -1,5 +1,5 @@
 # Repository Map
-_Generated: 2026-06-10T04:22:13.674Z — 0 source files indexed_
+_Generated: 2026-06-10T04:48:59.714Z — 0 source files indexed_
 
 ## Directory Tree
 build_tests/
@@ -10,14 +10,14 @@ docs/
 forms/
   mainwindow.ui  [635 lines]
 include/
-  arithmeticoperations.h  [18 lines]
-  calculatorcontroller.h  [42 lines]
+  arithmeticoperations.h  [20 lines]
+  calculatorcontroller.h  [44 lines]
   mainwindow.h  [95 lines]
 resources/
   resources.qrc  [6 lines]
 src/
-  arithmeticoperations.cpp  [63 lines]
-  calculatorcontroller.cpp  [144 lines]
+  arithmeticoperations.cpp  [71 lines]
+  calculatorcontroller.cpp  [181 lines]
   main.cpp  [12 lines]
   mainwindow.cpp  [308 lines]
 test/
@@ -75,6 +75,8 @@ tests/
     test_addition_unit.h  [25 lines]
     test_calculator_controller_unit.cpp  [120 lines]
     test_calculator_controller_unit.h  [22 lines]
+    test_division_unit.cpp  [64 lines]
+    test_division_unit.h  [22 lines]
     test_edit_menu_unit.cpp  [71 lines]
     test_file_menu_unit.cpp  [54 lines]
     test_help_menu_unit.cpp  [79 lines]
@@ -89,9 +91,11 @@ tests/
     test_subtraction_unit.cpp  [97 lines]
     test_subtraction_unit.h  [25 lines]
     test_view_menu_unit.cpp  [123 lines]
-  test_main.cpp  [106 lines]
-  test_placeholder_responsiveness  [715 lines]
-  tests.pro  [63 lines]
+  test_division_ui_logic_integration.cpp  [124 lines]
+  test_division_ui_logic_integration.h  [20 lines]
+  test_main.cpp  [116 lines]
+  test_placeholder_responsiveness  [725 lines]
+  tests.pro  [67 lines]
 .git  [2 lines]
 .gitignore  [21 lines]
 .qmake.stash  [22 lines]
@@ -103,8 +107,12 @@ agent_plan_E2-S3-T4.json  [45 lines]
 agent_plan_E2-S3-T4.md  [50 lines]
 agent_plan_E2-S4-T1.json  [55 lines]
 agent_plan_E2-S4-T1.md  [52 lines]
-Calculator  [142 lines]
+agent_plan_E2-S4-T2.json  [43 lines]
+agent_plan_E2-S4-T2.md  [43 lines]
+agent_plan_E2-S4-T3.json  [46 lines]
+agent_plan_E2-S4-T3.md  [49 lines]
+Calculator  [143 lines]
 Calculator.pro  [27 lines]
-REPO_MAP.md  [109 lines]
+REPO_MAP.md  [111 lines]
 
 ## Symbol Index
