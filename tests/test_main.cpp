@@ -20,6 +20,9 @@
 #include "test_subtraction_ui_e2e.h"
 #include "test_subtraction_e2e.h"
 #include "test_subtraction_integration.h"
+#include "test_multiplication_ui_unit.h"
+#include "test_multiplication_ui_integration.h"
+#include "test_multiplication_ui_e2e.h"
 
 int main(int argc, char *argv[])
 {
@@ -43,6 +46,10 @@ int main(int argc, char *argv[])
         status |= QTest::qExec(&unit, argc, argv);
     }
     {
+        TestMultiplicationUiUnit unit;
+        status |= QTest::qExec(&unit, argc, argv);
+    }
+    {
         TestCalculatorControllerUnit unit;
         status |= QTest::qExec(&unit, argc, argv);
     }
@@ -56,6 +63,10 @@ int main(int argc, char *argv[])
     }
     {
         TestSubtractionUiIntegration integration;
+        status |= QTest::qExec(&integration, argc, argv);
+    }
+    {
+        TestMultiplicationUiIntegration integration;
         status |= QTest::qExec(&integration, argc, argv);
     }
     {
@@ -80,6 +91,10 @@ int main(int argc, char *argv[])
     }
     {
         TestSubtractionUiE2e e2e;
+        status |= QTest::qExec(&e2e, argc, argv);
+    }
+    {
+        TestMultiplicationUiE2E e2e;
         status |= QTest::qExec(&e2e, argc, argv);
     }
     {
