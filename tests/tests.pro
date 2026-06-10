@@ -20,6 +20,7 @@ SOURCES += \
     $$PWD/unit/test_subtraction_ui_unit.cpp \
     $$PWD/unit/test_multiplication_ui_unit.cpp \
     $$PWD/unit/test_division_unit.cpp \
+    $$PWD/test_division_ui_logic_integration.cpp \
     $$PWD/integration/test_placeholder_responsiveness_integration.cpp \
     $$PWD/integration/test_addition_integration.cpp \
     $$PWD/integration/test_calculator_controller_integration.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     $$PWD/../include/mainwindow.h \
     $$PWD/../include/arithmeticoperations.h \
     $$PWD/../include/calculatorcontroller.h \
+    $$PWD/test_division_ui_logic_integration.h \
     $$PWD/unit/test_placeholder_responsiveness_unit.h \
     $$PWD/unit/test_addition_unit.h \
     $$PWD/unit/test_calculator_controller_unit.h \

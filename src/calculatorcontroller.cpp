@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QPushButton>
 
+#include <cmath>
+
 CalculatorController::CalculatorController(QLineEdit *firstOperand,
                                            QLineEdit *secondOperand,
                                            QLineEdit *resultDisplay,
@@ -39,6 +41,14 @@ void CalculatorController::bindMultiply(QPushButton *multiplyButton)
     if (multiplyButton != nullptr) {
         connect(multiplyButton, &QPushButton::clicked,
                 this, &CalculatorController::onMultiplyButtonClicked);
+    }
+}
+
+void CalculatorController::bindDivide(QPushButton *divideButton)
+{
+    if (divideButton != nullptr) {
+        connect(divideButton, &QPushButton::clicked,
+                this, &CalculatorController::onDivideButtonClicked);
     }
 }
 
@@ -108,6 +118,33 @@ void CalculatorController::onMultiplyButtonClicked()
 
     const double product = arithmetic::multiplyNumbers(first, second);
     m_resultDisplay->setText(QString::number(product));
+    clearError();
+}
+
+void CalculatorController::onDivideButtonClicked()
+{
+    if (m_firstOperand == nullptr || m_secondOperand == nullptr
+            || m_resultDisplay == nullptr) {
+        return;
+    }
+
+    double first = 0.0;
+    double second = 0.0;
+    if (!parseOperand(m_firstOperand->text(), first)) {
+        setError(QStringLiteral("First operand is not a valid number"));
+        return;
+    }
+    if (!parseOperand(m_secondOperand->text(), second)) {
+        setError(QStringLiteral("Second operand is not a valid number"));
+        return;
+    }
+
+    const double quotient = arithmetic::divideNumbers(first, second);
+    if (std::isnan(quotient)) {
+        setError(QStringLiteral("Division by zero"));
+        return;
+    }
+    m_resultDisplay->setText(QString::number(quotient));
     clearError();
 }
 

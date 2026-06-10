@@ -24,6 +24,7 @@
 #include "test_multiplication_ui_integration.h"
 #include "test_multiplication_ui_e2e.h"
 #include "test_division_unit.h"
+#include "test_division_ui_logic_integration.h"
 
 int main(int argc, char *argv[])
 {
@@ -72,6 +73,10 @@ int main(int argc, char *argv[])
     }
     {
         TestMultiplicationUiIntegration integration;
+        status |= QTest::qExec(&integration, argc, argv);
+    }
+    {
+        DivisionUiLogicIntegrationTest integration;
         status |= QTest::qExec(&integration, argc, argv);
     }
     {
