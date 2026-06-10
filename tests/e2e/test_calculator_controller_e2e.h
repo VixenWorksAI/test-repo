@@ -10,6 +10,9 @@ class TestCalculatorControllerE2E : public QObject
 private slots:
     void userInitiatedAdditionShowsCorrectResult();
     void userInitiatedAdditionWithInvalidInputReportsError();
+
+    void userInitiatedSubtractionShowsCorrectResult();
+    void userInitiatedSubtractionWithInvalidInputReportsError();
 };
 
 #endif

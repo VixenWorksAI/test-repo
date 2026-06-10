@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
                                            statusLabel(),
                                            this);
     m_controller->bind(buttonAdd());
+    m_controller->bindSubtract(buttonSubtract());
 }
 
 void MainWindow::applySubtractionInputValidation()

@@ -68,3 +68,52 @@ void TestCalculatorControllerUnit::emptyFirstOperandShowsError()
     QCOMPARE(result.text(), QString());
     QVERIFY(!status.text().isEmpty());
 }
+
+void TestCalculatorControllerUnit::subtractValidOperandsDisplayDifference()
+{
+    QLineEdit first;
+    QLineEdit second;
+    QLineEdit result;
+    QLabel status;
+    first.setText(QStringLiteral("10"));
+    second.setText(QStringLiteral("3"));
+
+    CalculatorController controller(&first, &second, &result, &status);
+    controller.onSubtractButtonClicked();
+
+    QCOMPARE(result.text(), QStringLiteral("7"));
+    QCOMPARE(status.text(), QString());
+}
+
+void TestCalculatorControllerUnit::subtractInvalidFirstOperandShowsError()
+{
+    QLineEdit first;
+    QLineEdit second;
+    QLineEdit result;
+    QLabel status;
+    first.setText(QStringLiteral("abc"));
+    second.setText(QStringLiteral("2"));
+    result.setText(QStringLiteral("legacy"));
+
+    CalculatorController controller(&first, &second, &result, &status);
+    controller.onSubtractButtonClicked();
+
+    QCOMPARE(result.text(), QString());
+    QVERIFY(!status.text().isEmpty());
+}
+
+void TestCalculatorControllerUnit::subtractInvalidSecondOperandShowsError()
+{
+    QLineEdit first;
+    QLineEdit second;
+    QLineEdit result;
+    QLabel status;
+    first.setText(QStringLiteral("5"));
+    second.setText(QStringLiteral("xyz"));
+
+    CalculatorController controller(&first, &second, &result, &status);
+    controller.onSubtractButtonClicked();
+
+    QCOMPARE(result.text(), QString());
+    QVERIFY(!status.text().isEmpty());
+}

@@ -19,9 +19,11 @@ public:
                                   QObject *parent = nullptr);
 
     void bind(QPushButton *addButton);
+    void bindSubtract(QPushButton *subtractButton);
 
 public slots:
     void onAddButtonClicked();
+    void onSubtractButtonClicked();
 
 private:
     bool parseOperand(const QString &raw, double &out) const;

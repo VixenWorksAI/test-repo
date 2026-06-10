@@ -12,6 +12,10 @@ private slots:
     void invalidFirstOperandShowsError();
     void invalidSecondOperandShowsError();
     void emptyFirstOperandShowsError();
+
+    void subtractValidOperandsDisplayDifference();
+    void subtractInvalidFirstOperandShowsError();
+    void subtractInvalidSecondOperandShowsError();
 };
 
 #endif

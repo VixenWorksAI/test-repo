@@ -26,6 +26,14 @@ void CalculatorController::bind(QPushButton *addButton)
     }
 }
 
+void CalculatorController::bindSubtract(QPushButton *subtractButton)
+{
+    if (subtractButton != nullptr) {
+        connect(subtractButton, &QPushButton::clicked,
+                this, &CalculatorController::onSubtractButtonClicked);
+    }
+}
+
 void CalculatorController::onAddButtonClicked()
 {
     if (m_firstOperand == nullptr || m_secondOperand == nullptr
@@ -46,6 +54,29 @@ void CalculatorController::onAddButtonClicked()
 
     const double sum = arithmetic::addNumbers(first, second);
     m_resultDisplay->setText(QString::number(sum));
+    clearError();
+}
+
+void CalculatorController::onSubtractButtonClicked()
+{
+    if (m_firstOperand == nullptr || m_secondOperand == nullptr
+            || m_resultDisplay == nullptr) {
+        return;
+    }
+
+    double first = 0.0;
+    double second = 0.0;
+    if (!parseOperand(m_firstOperand->text(), first)) {
+        setError(QStringLiteral("First operand is not a valid number"));
+        return;
+    }
+    if (!parseOperand(m_secondOperand->text(), second)) {
+        setError(QStringLiteral("Second operand is not a valid number"));
+        return;
+    }
+
+    const double difference = arithmetic::subtractNumbers(first, second);
+    m_resultDisplay->setText(QString::number(difference));
     clearError();
 }
 

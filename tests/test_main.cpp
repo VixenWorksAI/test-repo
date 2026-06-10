@@ -17,6 +17,7 @@
 #include "test_subtraction_ui_unit.h"
 #include "test_subtraction_ui_integration.h"
 #include "test_subtraction_ui_e2e.h"
+#include "test_subtraction_integration.h"
 
 int main(int argc, char *argv[])
 {
@@ -49,6 +50,10 @@ int main(int argc, char *argv[])
     }
     {
         TestSubtractionUiIntegration integration;
+        status |= QTest::qExec(&integration, argc, argv);
+    }
+    {
+        TestSubtractionIntegration integration;
         status |= QTest::qExec(&integration, argc, argv);
     }
     {

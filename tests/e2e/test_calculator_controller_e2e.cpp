@@ -38,3 +38,35 @@ void TestCalculatorControllerE2E::userInitiatedAdditionWithInvalidInputReportsEr
     QVERIFY(!window.statusLabel()->text().isEmpty());
     QCOMPARE(window.displayEdit()->text(), QString());
 }
+
+void TestCalculatorControllerE2E::userInitiatedSubtractionShowsCorrectResult()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.firstOperandInput()->setText(QStringLiteral("100"));
+    window.secondOperandInput()->setText(QStringLiteral("37"));
+
+    window.buttonSubtract()->click();
+
+    QCOMPARE(window.displayEdit()->text(), QStringLiteral("63"));
+    QCOMPARE(window.statusLabel()->text(), QString());
+}
+
+void TestCalculatorControllerE2E::userInitiatedSubtractionWithInvalidInputReportsError()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.firstOperandInput()->setText(QStringLiteral("abc"));
+    window.secondOperandInput()->setText(QStringLiteral("5"));
+
+    window.buttonSubtract()->click();
+
+    QVERIFY(!window.statusLabel()->text().isEmpty());
+    QCOMPARE(window.displayEdit()->text(), QString());
+}
