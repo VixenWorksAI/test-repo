@@ -43,6 +43,7 @@ public:
     QPushButton *buttonAdd() const;
     QPushButton *buttonSubtract() const;
     QPushButton *buttonMultiply() const;
+    QPushButton *buttonDivide() const;
     QLineEdit *firstOperandInput() const;
     QLineEdit *secondOperandInput() const;
     QLabel *statusLabel() const;

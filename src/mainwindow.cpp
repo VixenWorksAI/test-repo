@@ -226,6 +226,11 @@ QPushButton *MainWindow::buttonMultiply() const
     return ui->buttonMultiply;
 }
 
+QPushButton *MainWindow::buttonDivide() const
+{
+    return ui->buttonDivide;
+}
+
 bool MainWindow::isSubtractButtonActive() const
 {
     if (buttonSubtract() == nullptr) {

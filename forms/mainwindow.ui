@@ -14,7 +14,7 @@
    <string>Calculator</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton#buttonMultiply:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }</string>
+   <string notr="true">QPushButton#buttonMultiply:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:checked { background-color: #ffd54f; color: #212121; border: 2px solid #f57f17; }QPushButton#buttonDivide:pressed { background-color: #ffe082; color: #212121; border: 2px solid #f57f17; }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="centralLayout">
@@ -155,6 +155,12 @@
         <widget class="QPushButton" name="buttonDivide">
          <property name="text">
           <string>/</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
          </property>
          <property name="minimumSize">
           <size>
