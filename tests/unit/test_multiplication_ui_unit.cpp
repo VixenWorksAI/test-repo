@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 
 #include <QDoubleValidator>
+#include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
@@ -142,4 +143,43 @@ void TestMultiplicationUiUnit::multiplyFractionalNumbersMaintainsPrecision()
     QCOMPARE(multiplyNumbers(0.5, 0.5), 0.25);
     QCOMPARE(multiplyNumbers(1.25, 8.0), 10.0);
     QVERIFY(qFuzzyCompare(multiplyNumbers(1.0 / 3.0, 3.0), 1.0));
+}
+
+void TestMultiplicationUiUnit::clickingMultiplyButtonTriggersMultiplyNumbersWithInputs()
+{
+    MainWindow window;
+    window.firstOperandInput()->setText(QStringLiteral("6"));
+    window.secondOperandInput()->setText(QStringLiteral("7"));
+    QPushButton *button = window.buttonMultiply();
+    QVERIFY(button != nullptr);
+    QVERIFY(button->isCheckable());
+
+    button->click();
+    QVERIFY(button->isChecked());
+
+    const double first = window.firstOperandInput()->text().toDouble();
+    const double second = window.secondOperandInput()->text().toDouble();
+    QCOMPARE(multiplyNumbers(first, second), 42.0);
+}
+
+void TestMultiplicationUiUnit::clickingMultiplyButtonDisplaysProductInResult()
+{
+    MainWindow window;
+    window.firstOperandInput()->setText(QStringLiteral("6"));
+    window.secondOperandInput()->setText(QStringLiteral("7"));
+    window.buttonMultiply()->click();
+
+    const double expected = multiplyNumbers(6.0, 7.0);
+    QCOMPARE(window.displayEdit()->text().toDouble(), expected);
+}
+
+void TestMultiplicationUiUnit::clickingMultiplyButtonWithInvalidInputShowsError()
+{
+    MainWindow window;
+    window.firstOperandInput()->setText(QStringLiteral("not-a-number"));
+    window.secondOperandInput()->setText(QStringLiteral("7"));
+    window.buttonMultiply()->click();
+
+    QCOMPARE(window.statusLabel()->text(),
+             QStringLiteral("First operand is not a valid number"));
 }

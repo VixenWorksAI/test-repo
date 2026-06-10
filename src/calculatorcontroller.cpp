@@ -34,6 +34,14 @@ void CalculatorController::bindSubtract(QPushButton *subtractButton)
     }
 }
 
+void CalculatorController::bindMultiply(QPushButton *multiplyButton)
+{
+    if (multiplyButton != nullptr) {
+        connect(multiplyButton, &QPushButton::clicked,
+                this, &CalculatorController::onMultiplyButtonClicked);
+    }
+}
+
 void CalculatorController::onAddButtonClicked()
 {
     if (m_firstOperand == nullptr || m_secondOperand == nullptr
@@ -77,6 +85,29 @@ void CalculatorController::onSubtractButtonClicked()
 
     const double difference = arithmetic::subtractNumbers(first, second);
     m_resultDisplay->setText(QString::number(difference));
+    clearError();
+}
+
+void CalculatorController::onMultiplyButtonClicked()
+{
+    if (m_firstOperand == nullptr || m_secondOperand == nullptr
+            || m_resultDisplay == nullptr) {
+        return;
+    }
+
+    double first = 0.0;
+    double second = 0.0;
+    if (!parseOperand(m_firstOperand->text(), first)) {
+        setError(QStringLiteral("First operand is not a valid number"));
+        return;
+    }
+    if (!parseOperand(m_secondOperand->text(), second)) {
+        setError(QStringLiteral("Second operand is not a valid number"));
+        return;
+    }
+
+    const double product = arithmetic::multiplyNumbers(first, second);
+    m_resultDisplay->setText(QString::number(product));
     clearError();
 }
 

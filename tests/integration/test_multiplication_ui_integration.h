@@ -23,6 +23,9 @@ private slots:
     void multiplicationLogicHandlesNegativeNumbersFromUiInputs();
     void multiplicationLogicHandlesOverflowFromUiInputs();
     void multiplicationLogicHandlesZeroFromUiInputs();
+
+    void multiplyButtonClickProducesDisplayUpdateFromUiInputs();
+    void multiplyButtonClickWithInvalidInputLeavesDisplayUnchanged();
 };
 
 #endif

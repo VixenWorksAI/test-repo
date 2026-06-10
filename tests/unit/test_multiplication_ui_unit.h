@@ -30,6 +30,10 @@ private slots:
     void multiplyLargeNumbersSaturatesToMax();
     void multiplyLargePositiveByLargeNegativeSaturatesToMin();
     void multiplyFractionalNumbersMaintainsPrecision();
+
+    void clickingMultiplyButtonTriggersMultiplyNumbersWithInputs();
+    void clickingMultiplyButtonDisplaysProductInResult();
+    void clickingMultiplyButtonWithInvalidInputShowsError();
 };
 
 #endif

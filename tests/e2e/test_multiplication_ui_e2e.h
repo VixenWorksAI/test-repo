@@ -22,6 +22,9 @@ private slots:
     void e2eMultiplicationWithNegativeNumbersProducesCorrectProduct();
     void e2eMultiplicationWithLargeNumbersSaturates();
     void e2eMultiplicationWithZeroProducesZero();
+
+    void e2eTypingThenClickingMultiplyUpdatesDisplay();
+    void e2eInvalidInputSurfacesErrorInStatusLabel();
 };
 
 #endif

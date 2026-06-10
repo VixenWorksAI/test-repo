@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
                                            this);
     m_controller->bind(buttonAdd());
     m_controller->bindSubtract(buttonSubtract());
+    m_controller->bindMultiply(buttonMultiply());
 }
 
 void MainWindow::applySubtractionInputValidation()

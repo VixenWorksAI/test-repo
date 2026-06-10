@@ -20,10 +20,12 @@ public:
 
     void bind(QPushButton *addButton);
     void bindSubtract(QPushButton *subtractButton);
+    void bindMultiply(QPushButton *multiplyButton);
 
 public slots:
     void onAddButtonClicked();
     void onSubtractButtonClicked();
+    void onMultiplyButtonClicked();
 
 private:
     bool parseOperand(const QString &raw, double &out) const;

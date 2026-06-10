@@ -5,6 +5,7 @@
 
 #include <QApplication>
 #include <QDoubleValidator>
+#include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QSignalSpy>
@@ -276,4 +277,49 @@ void TestMultiplicationUiE2E::e2eMultiplicationWithZeroProducesZero()
     QVERIFY(okA);
     QVERIFY(okB);
     QCOMPARE(arithmetic::multiplyNumbers(a, b), 0.0);
+}
+
+void TestMultiplicationUiE2E::e2eTypingThenClickingMultiplyUpdatesDisplay()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.show();
+    QTest::qWaitForWindowExposed(&window);
+
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+    QPushButton *multiply = window.buttonMultiply();
+
+    first->setText(QStringLiteral("9"));
+    second->setText(QStringLiteral("4"));
+
+    multiply->click();
+
+    const double expected = arithmetic::multiplyNumbers(9.0, 4.0);
+    QCOMPARE(window.displayEdit()->text().toDouble(), expected);
+}
+
+void TestMultiplicationUiE2E::e2eInvalidInputSurfacesErrorInStatusLabel()
+{
+    int argc = 0;
+    QApplication app(argc, nullptr);
+    Q_UNUSED(app);
+
+    MainWindow window;
+    window.show();
+    QTest::qWaitForWindowExposed(&window);
+
+    QLineEdit *first = window.firstOperandInput();
+    QLineEdit *second = window.secondOperandInput();
+    QPushButton *multiply = window.buttonMultiply();
+
+    first->setText(QStringLiteral("not-a-number"));
+    second->setText(QStringLiteral("2"));
+
+    multiply->click();
+
+    QVERIFY(!window.statusLabel()->text().isEmpty());
 }
