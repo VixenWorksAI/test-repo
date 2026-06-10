@@ -402,6 +402,41 @@
       </layout>
      </widget>
     </item>
+    <item>
+     <widget class="QLabel" name="firstOperandLabel">
+      <property name="text">
+       <string>First number:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="firstOperandInput">
+      <property name="placeholderText">
+       <string>Enter first number</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="secondOperandLabel">
+      <property name="text">
+       <string>Second number:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="secondOperandInput">
+      <property name="placeholderText">
+       <string>Enter second number</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="statusLabel">
+      <property name="text">
+       <string></string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">

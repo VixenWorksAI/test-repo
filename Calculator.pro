@@ -11,11 +11,13 @@ INCLUDEPATH += $$PWD/include
 SOURCES += \
     $$PWD/src/main.cpp \
     $$PWD/src/mainwindow.cpp \
-    $$PWD/src/arithmeticoperations.cpp
+    $$PWD/src/arithmeticoperations.cpp \
+    $$PWD/src/calculatorcontroller.cpp
 
 HEADERS += \
     $$PWD/include/mainwindow.h \
-    $$PWD/include/arithmeticoperations.h
+    $$PWD/include/arithmeticoperations.h \
+    $$PWD/include/calculatorcontroller.h
 
 FORMS += \
     $$PWD/forms/mainwindow.ui

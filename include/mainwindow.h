@@ -10,6 +10,10 @@ QT_END_NAMESPACE
 class QAction;
 class QMenu;
 class QLineEdit;
+class QPushButton;
+class QLabel;
+
+class CalculatorController;
 
 class MainWindow : public QMainWindow
 {
@@ -36,6 +40,10 @@ public:
     bool hasUniqueMenuTitles() const;
 
     QLineEdit *displayEdit() const;
+    QPushButton *buttonAdd() const;
+    QLineEdit *firstOperandInput() const;
+    QLineEdit *secondOperandInput() const;
+    QLabel *statusLabel() const;
 
 signals:
     void aboutDialogRequested();
@@ -66,6 +74,7 @@ private:
     QAction *m_zoomOut;
     QAction *m_resetZoom;
     int m_zoomPercent;
+    CalculatorController *m_controller;
 
     static constexpr int kDefaultZoomPercent = 100;
     static constexpr int kZoomStepPercent = 10;

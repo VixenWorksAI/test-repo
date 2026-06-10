@@ -1,10 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "calculatorcontroller.h"
 
 #include <QAction>
+#include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
 #include <QMenuBar>
+#include <QPushButton>
 #include <QSet>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -18,11 +21,19 @@ MainWindow::MainWindow(QWidget *parent)
     , m_zoomIn(nullptr)
     , m_zoomOut(nullptr)
     , m_resetZoom(nullptr)
-    , m_zoomPercent(kDefaultZoomPercent)
+    ,     m_zoomPercent(kDefaultZoomPercent)
+    , m_controller(nullptr)
 {
     ui->setupUi(this);
     applyResponsiveLayout();
     setupViewMenu();
+
+    m_controller = new CalculatorController(firstOperandInput(),
+                                           secondOperandInput(),
+                                           displayEdit(),
+                                           statusLabel(),
+                                           this);
+    m_controller->bind(buttonAdd());
 }
 
 void MainWindow::applyResponsiveLayout()
@@ -164,6 +175,26 @@ bool MainWindow::hasUniqueMenuTitles() const
 QLineEdit *MainWindow::displayEdit() const
 {
     return ui->displayEdit;
+}
+
+QPushButton *MainWindow::buttonAdd() const
+{
+    return ui->buttonAdd;
+}
+
+QLineEdit *MainWindow::firstOperandInput() const
+{
+    return ui->firstOperandInput;
+}
+
+QLineEdit *MainWindow::secondOperandInput() const
+{
+    return ui->secondOperandInput;
+}
+
+QLabel *MainWindow::statusLabel() const
+{
+    return ui->statusLabel;
 }
 
 void MainWindow::on_actionToggle_Sidebar_triggered()
