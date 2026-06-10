@@ -19,3 +19,4 @@ Calculator
 tests/test_*
 # Repo map sidecar (generated — do not commit)
 .repo_map_index.json
+agent_plan_*.*
