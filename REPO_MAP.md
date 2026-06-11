@@ -1,27 +1,27 @@
 # Repository Map
-_Generated: 2026-06-10T14:58:58.993Z — 1 source files indexed_
+_Generated: 2026-06-11T00:59:57.199Z — 1 source files indexed_
 
 ## Directory Tree
 app/
-  layout.tsx  [14 lines]
+  layout.tsx  [30 lines]
 build_tests/
   test_placeholder_responsiveness  [690 lines]
 docs/
   ui/
     mainwindow-placeholders.md  [62 lines]
 forms/
-  mainwindow.ui  [674 lines]
+  mainwindow.ui  [756 lines]
 include/
   arithmeticoperations.h  [20 lines]
   calculatorcontroller.h  [47 lines]
-  mainwindow.h  [96 lines]
+  mainwindow.h  [103 lines]
 resources/
   resources.qrc  [6 lines]
 src/
   arithmeticoperations.cpp  [71 lines]
   calculatorcontroller.cpp  [187 lines]
-  main.cpp  [12 lines]
-  mainwindow.cpp  [319 lines]
+  main.cpp  [17 lines]
+  mainwindow.cpp  [333 lines]
 test/
   e2e/
     DivisionE2ETest.cpp  [235 lines]
@@ -45,6 +45,8 @@ tests/
     test_edit_menu_e2e.cpp  [97 lines]
     test_file_menu_e2e.cpp  [64 lines]
     test_help_menu_e2e.cpp  [51 lines]
+    test_lazy_loading_e2e.cpp  [29 lines]
+    test_lazy_loading_e2e.h  [15 lines]
     test_menu_integration_e2e.cpp  [152 lines]
     test_multiplication_ui_e2e.cpp  [326 lines]
     test_multiplication_ui_e2e.h  [31 lines]
@@ -63,6 +65,8 @@ tests/
     test_edit_menu_integration.cpp  [67 lines]
     test_file_menu_integration.cpp  [65 lines]
     test_help_menu_integration.cpp  [79 lines]
+    test_lazy_loading_integration.cpp  [46 lines]
+    test_lazy_loading_integration.h  [16 lines]
     test_menu_integration_integration.cpp  [78 lines]
     test_multiplication_ui_integration.cpp  [278 lines]
     test_multiplication_ui_integration.h  [32 lines]
@@ -84,6 +88,8 @@ tests/
     test_edit_menu_unit.cpp  [71 lines]
     test_file_menu_unit.cpp  [54 lines]
     test_help_menu_unit.cpp  [79 lines]
+    test_lazy_loading_unit.cpp  [58 lines]
+    test_lazy_loading_unit.h  [17 lines]
     test_menu_integration_unit.cpp  [162 lines]
     test_multiplication_ui_unit.cpp  [186 lines]
     test_multiplication_ui_unit.h  [40 lines]
@@ -98,45 +104,16 @@ tests/
   test_calculation_logic_realtime.cpp  [317 lines]
   test_division_ui_logic_integration.cpp  [124 lines]
   test_division_ui_logic_integration.h  [20 lines]
-  test_main.cpp  [116 lines]
-  test_placeholder_responsiveness  [725 lines]
-  tests.pro  [67 lines]
+  test_main.cpp  [131 lines]
+  test_placeholder_responsiveness  [904 lines]
+  tests.pro  [73 lines]
+  tst_resource_loading.cpp  [68 lines]
 .git  [2 lines]
-.gitignore  [22 lines]
+.gitignore  [23 lines]
 .qmake.stash  [22 lines]
-agent_plan_E2-S3-T2.json  [62 lines]
-agent_plan_E2-S3-T2.md  [64 lines]
-agent_plan_E2-S3-T3.json  [56 lines]
-agent_plan_E2-S3-T3.md  [56 lines]
-agent_plan_E2-S3-T4.json  [45 lines]
-agent_plan_E2-S3-T4.md  [50 lines]
-agent_plan_E2-S4-T1.json  [55 lines]
-agent_plan_E2-S4-T1.md  [52 lines]
-agent_plan_E2-S4-T2.json  [43 lines]
-agent_plan_E2-S4-T2.md  [43 lines]
-agent_plan_E2-S4-T3.json  [46 lines]
-agent_plan_E2-S4-T3.md  [49 lines]
-agent_plan_E2-S4-T4.json  [39 lines]
-agent_plan_E2-S4-T4.md  [44 lines]
-agent_plan_E3-S1-T1.json  [49 lines]
-agent_plan_E3-S1-T1.md  [49 lines]
-agent_plan_E3-S1-T2.json  [48 lines]
-agent_plan_E3-S1-T2.md  [48 lines]
-agent_plan_E3-S1-T3.json  [38 lines]
-agent_plan_E3-S1-T3.md  [43 lines]
-agent_plan_E3-S2-T1.json  [42 lines]
-agent_plan_E3-S2-T1.md  [45 lines]
-agent_plan_E3-S2-T2.json  [36 lines]
-agent_plan_E3-S2-T2.md  [41 lines]
-agent_plan_E3-S2-T3.json  [46 lines]
-agent_plan_E3-S2-T3.md  [49 lines]
-agent_plan_E3-S3-T1.json  [44 lines]
-agent_plan_E3-S3-T1.md  [46 lines]
-agent_plan_E3-S3-T2.json  [41 lines]
-agent_plan_E3-S3-T2.md  [43 lines]
-Calculator  [143 lines]
-Calculator.pro  [27 lines]
-REPO_MAP.md  [143 lines]
+Calculator  [265 lines]
+Calculator.pro  [40 lines]
+REPO_MAP.md  [145 lines]
 
 ## Symbol Index
 
