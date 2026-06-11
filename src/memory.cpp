@@ -5,6 +5,16 @@
 
 #include <algorithm>
 
+#if defined(__has_include)
+#if __has_include(<valgrind/memcheck.h>)
+#include <valgrind/memcheck.h>
+#define MEMORY_AUDIT_HAS_VALGRIND 1
+#endif
+#elif defined(__VALGRIND_MAJOR__)
+#include <valgrind/memcheck.h>
+#define MEMORY_AUDIT_HAS_VALGRIND 1
+#endif
+
 namespace
 {
 QMutex &auditMutex()
@@ -88,6 +98,11 @@ bool MemoryAudit::validateMemoryLimit() const
 
 bool MemoryAudit::validateNoLeaks() const
 {
+#if defined(MEMORY_AUDIT_HAS_VALGRIND)
+    if (RUNNING_ON_VALGRIND) {
+        VALGRIND_DO_LEAK_CHECK;
+    }
+#endif
     return currentUsageBytes() == 0 && outstandingAllocations() == 0;
 }
 
