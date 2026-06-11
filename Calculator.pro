@@ -29,8 +29,9 @@ FORMS += \
 RESOURCES += \
     $$PWD/resources/resources.qrc
 
-QMAKE_CXXFLAGS += -Os -fdata-sections -ffunction-sections
+QMAKE_CXXFLAGS += -O2 -fdata-sections -ffunction-sections
 QMAKE_LFLAGS   += -Wl,--gc-sections -Wl,-s
+QMAKE_CXXFLAGS += -DNDEBUG
 
 OBJECTS_DIR     = build/obj
 MOC_DIR         = build/moc

@@ -3,16 +3,21 @@ CONFIG   += console c++17
 CONFIG   -= app_bundle
 TEMPLATE = app
 TARGET   = test_placeholder_responsiveness
+QMAKE_CXXFLAGS += -O2
 INCLUDEPATH += $$PWD/../include \
                $$PWD/unit \
                $$PWD/integration \
                $$PWD/e2e
+
+HEADERS += \
+    $$PWD/tst_arithmetic_operations.h
 
 SOURCES += \
     $$PWD/test_main.cpp \
     $$PWD/../src/mainwindow.cpp \
     $$PWD/../src/arithmeticoperations.cpp \
     $$PWD/../src/calculatorcontroller.cpp \
+    $$PWD/tst_arithmetic_operations.cpp \
     $$PWD/unit/test_placeholder_responsiveness_unit.cpp \
     $$PWD/unit/test_addition_unit.cpp \
     $$PWD/unit/test_calculator_controller_unit.cpp \

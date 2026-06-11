@@ -29,6 +29,8 @@
 #include "test_lazy_loading_integration.h"
 #include "test_lazy_loading_e2e.h"
 
+#include "tst_arithmetic_operations.h"
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -125,6 +127,10 @@ int main(int argc, char *argv[])
     {
         TestLazyLoadingE2E e2e;
         status |= QTest::qExec(&e2e, argc, argv);
+    }
+    {
+        TestArithmeticPerformance perf;
+        status |= QTest::qExec(&perf, argc, argv);
     }
     return status;
 }
