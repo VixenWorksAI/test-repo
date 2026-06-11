@@ -1,5 +1,5 @@
 # Repository Map
-_Generated: 2026-06-11T06:09:46.442Z — 1 source files indexed_
+_Generated: 2026-06-11T06:14:57.105Z — 1 source files indexed_
 
 ## Directory Tree
 app/
@@ -15,7 +15,7 @@ include/
   arithmeticoperations.h  [22 lines]
   calculatorcontroller.h  [47 lines]
   mainwindow.h  [103 lines]
-  memory.h  [77 lines]
+  memory.h  [105 lines]
 resources/
   resources.qrc  [6 lines]
 src/
