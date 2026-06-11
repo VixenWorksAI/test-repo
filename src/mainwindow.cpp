@@ -10,6 +10,7 @@
 #include <QMenuBar>
 #include <QPushButton>
 #include <QSet>
+#include <QWidget>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -54,6 +55,11 @@ void MainWindow::deferredInitialization()
     if (m_deferredInitialized) {
         return;
     }
+
+    auto *historyPanel = new QWidget(this);
+    historyPanel->setObjectName(QStringLiteral("deferredHistoryPanel"));
+    historyPanel->hide();
+
     m_deferredInitialized = true;
 }
 
