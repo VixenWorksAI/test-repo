@@ -16,12 +16,14 @@ SOURCES += \
     $$PWD/src/main.cpp \
     $$PWD/src/mainwindow.cpp \
     $$PWD/src/arithmeticoperations.cpp \
-    $$PWD/src/calculatorcontroller.cpp
+    $$PWD/src/calculatorcontroller.cpp \
+    $$PWD/src/memory.cpp
 
 HEADERS += \
     $$PWD/include/mainwindow.h \
     $$PWD/include/arithmeticoperations.h \
-    $$PWD/include/calculatorcontroller.h
+    $$PWD/include/calculatorcontroller.h \
+    $$PWD/include/memory.h
 
 FORMS += \
     $$PWD/forms/mainwindow.ui
