@@ -1,11 +1,11 @@
 # Repository Map
-_Generated: 2026-06-11T01:14:46.646Z — 1 source files indexed_
+_Generated: 2026-06-11T01:28:10.725Z — 1 source files indexed_
 
 ## Directory Tree
 app/
   layout.tsx  [30 lines]
 build_tests/
-  test_placeholder_responsiveness  [690 lines]
+  test_placeholder_responsiveness  [1043 lines]
 docs/
   ui/
     mainwindow-placeholders.md  [62 lines]
@@ -15,6 +15,7 @@ include/
   arithmeticoperations.h  [22 lines]
   calculatorcontroller.h  [47 lines]
   mainwindow.h  [103 lines]
+  memory.h  [77 lines]
 resources/
   resources.qrc  [6 lines]
 src/
@@ -22,6 +23,7 @@ src/
   calculatorcontroller.cpp  [187 lines]
   main.cpp  [17 lines]
   mainwindow.cpp  [333 lines]
+  memory.cpp  [152 lines]
 test/
   e2e/
     DivisionE2ETest.cpp  [235 lines]
@@ -47,6 +49,8 @@ tests/
     test_help_menu_e2e.cpp  [51 lines]
     test_lazy_loading_e2e.cpp  [29 lines]
     test_lazy_loading_e2e.h  [15 lines]
+    test_memory_e2e.cpp  [56 lines]
+    test_memory_e2e.h  [16 lines]
     test_menu_integration_e2e.cpp  [152 lines]
     test_multiplication_ui_e2e.cpp  [326 lines]
     test_multiplication_ui_e2e.h  [31 lines]
@@ -67,6 +71,8 @@ tests/
     test_help_menu_integration.cpp  [79 lines]
     test_lazy_loading_integration.cpp  [46 lines]
     test_lazy_loading_integration.h  [16 lines]
+    test_memory_integration.cpp  [70 lines]
+    test_memory_integration.h  [17 lines]
     test_menu_integration_integration.cpp  [78 lines]
     test_multiplication_ui_integration.cpp  [278 lines]
     test_multiplication_ui_integration.h  [32 lines]
@@ -90,6 +96,8 @@ tests/
     test_help_menu_unit.cpp  [79 lines]
     test_lazy_loading_unit.cpp  [58 lines]
     test_lazy_loading_unit.h  [17 lines]
+    test_memory_unit.cpp  [88 lines]
+    test_memory_unit.h  [21 lines]
     test_menu_integration_unit.cpp  [162 lines]
     test_multiplication_ui_unit.cpp  [186 lines]
     test_multiplication_ui_unit.h  [40 lines]
@@ -104,17 +112,17 @@ tests/
   test_calculation_logic_realtime.cpp  [317 lines]
   test_division_ui_logic_integration.cpp  [124 lines]
   test_division_ui_logic_integration.h  [20 lines]
-  test_main.cpp  [137 lines]
+  test_main.cpp  [152 lines]
   test_placeholder_responsiveness  [904 lines]
-  tests.pro  [78 lines]
+  tests.pro  [86 lines]
   tst_arithmetic_operations.cpp  [95 lines]
   tst_arithmetic_operations.h  [23 lines]
   tst_resource_loading.cpp  [68 lines]
 .git  [2 lines]
-.gitignore  [23 lines]
+.gitignore  [25 lines]
 .qmake.stash  [22 lines]
 Calculator  [265 lines]
-Calculator.pro  [41 lines]
+Calculator.pro  [43 lines]
 REPO_MAP.md  [125 lines]
 tst_arithmetic_operations.moc  [141 lines]
 
