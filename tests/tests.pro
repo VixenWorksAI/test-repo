@@ -32,7 +32,10 @@ SOURCES += \
     $$PWD/e2e/test_calculator_controller_e2e.cpp \
     $$PWD/e2e/test_subtraction_e2e.cpp \
     $$PWD/e2e/test_subtraction_ui_e2e.cpp \
-    $$PWD/e2e/test_multiplication_ui_e2e.cpp
+    $$PWD/e2e/test_multiplication_ui_e2e.cpp \
+    $$PWD/unit/test_lazy_loading_unit.cpp \
+    $$PWD/integration/test_lazy_loading_integration.cpp \
+    $$PWD/e2e/test_lazy_loading_e2e.cpp
 
 HEADERS += \
     $$PWD/../include/mainwindow.h \
@@ -57,7 +60,10 @@ HEADERS += \
     $$PWD/e2e/test_calculator_controller_e2e.h \
     $$PWD/e2e/test_subtraction_e2e.h \
     $$PWD/e2e/test_subtraction_ui_e2e.h \
-    $$PWD/e2e/test_multiplication_ui_e2e.h
+    $$PWD/e2e/test_multiplication_ui_e2e.h \
+    $$PWD/unit/test_lazy_loading_unit.h \
+    $$PWD/integration/test_lazy_loading_integration.h \
+    $$PWD/e2e/test_lazy_loading_e2e.h
 
 FORMS += \
     $$PWD/../forms/mainwindow.ui

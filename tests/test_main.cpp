@@ -25,6 +25,9 @@
 #include "test_multiplication_ui_e2e.h"
 #include "test_division_unit.h"
 #include "test_division_ui_logic_integration.h"
+#include "test_lazy_loading_unit.h"
+#include "test_lazy_loading_integration.h"
+#include "test_lazy_loading_e2e.h"
 
 int main(int argc, char *argv[])
 {
@@ -109,6 +112,18 @@ int main(int argc, char *argv[])
     }
     {
         TestCalculatorControllerE2E e2e;
+        status |= QTest::qExec(&e2e, argc, argv);
+    }
+    {
+        TestLazyLoadingUnit unit;
+        status |= QTest::qExec(&unit, argc, argv);
+    }
+    {
+        TestLazyLoadingIntegration integration;
+        status |= QTest::qExec(&integration, argc, argv);
+    }
+    {
+        TestLazyLoadingE2E e2e;
         status |= QTest::qExec(&e2e, argc, argv);
     }
     return status;

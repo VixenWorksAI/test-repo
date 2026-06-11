@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_resetZoom(nullptr)
     ,     m_zoomPercent(kDefaultZoomPercent)
     , m_controller(nullptr)
+    , m_deferredInitialized(false)
 {
     ui->setupUi(this);
     applyResponsiveLayout();
@@ -46,6 +47,19 @@ MainWindow::MainWindow(QWidget *parent)
             &CalculatorController::displayUpdated,
             this,
             &MainWindow::updateDisplay);
+}
+
+void MainWindow::deferredInitialization()
+{
+    if (m_deferredInitialized) {
+        return;
+    }
+    m_deferredInitialized = true;
+}
+
+bool MainWindow::isDeferredInitialized() const
+{
+    return m_deferredInitialized;
 }
 
 void MainWindow::updateDisplay(const QString &text)

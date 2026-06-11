@@ -66,6 +66,12 @@ private slots:
     void on_actionAbout_triggered();
     void on_actionDocumentation_triggered();
 
+public slots:
+    void deferredInitialization();
+
+public:
+    bool isDeferredInitialized() const;
+
 private:
     void setupViewMenu();
     void applyResponsiveLayout();
@@ -85,6 +91,7 @@ private:
     QAction *m_resetZoom;
     int m_zoomPercent;
     CalculatorController *m_controller;
+    bool m_deferredInitialized;
 
     static constexpr int kDefaultZoomPercent = 100;
     static constexpr int kZoomStepPercent = 10;
