@@ -1,5 +1,5 @@
 # Repository Map
-_Generated: 2026-06-11T00:59:57.199Z — 1 source files indexed_
+_Generated: 2026-06-11T01:11:31.989Z — 1 source files indexed_
 
 ## Directory Tree
 app/
@@ -12,13 +12,13 @@ docs/
 forms/
   mainwindow.ui  [756 lines]
 include/
-  arithmeticoperations.h  [20 lines]
+  arithmeticoperations.h  [22 lines]
   calculatorcontroller.h  [47 lines]
   mainwindow.h  [103 lines]
 resources/
   resources.qrc  [6 lines]
 src/
-  arithmeticoperations.cpp  [71 lines]
+  arithmeticoperations.cpp  [73 lines]
   calculatorcontroller.cpp  [187 lines]
   main.cpp  [17 lines]
   mainwindow.cpp  [333 lines]
@@ -104,16 +104,19 @@ tests/
   test_calculation_logic_realtime.cpp  [317 lines]
   test_division_ui_logic_integration.cpp  [124 lines]
   test_division_ui_logic_integration.h  [20 lines]
-  test_main.cpp  [131 lines]
+  test_main.cpp  [137 lines]
   test_placeholder_responsiveness  [904 lines]
-  tests.pro  [73 lines]
+  tests.pro  [78 lines]
+  tst_arithmetic_operations.cpp  [95 lines]
+  tst_arithmetic_operations.h  [23 lines]
   tst_resource_loading.cpp  [68 lines]
 .git  [2 lines]
 .gitignore  [23 lines]
 .qmake.stash  [22 lines]
 Calculator  [265 lines]
-Calculator.pro  [40 lines]
-REPO_MAP.md  [145 lines]
+Calculator.pro  [41 lines]
+REPO_MAP.md  [122 lines]
+tst_arithmetic_operations.moc  [141 lines]
 
 ## Symbol Index
 
