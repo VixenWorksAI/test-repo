@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_controller->bindSubtract(buttonSubtract());
     m_controller->bindMultiply(buttonMultiply());
     m_controller->bindDivide(buttonDivide());
+    m_controller->discoverAndBindKeypad();
 
     connect(m_controller,
             &CalculatorController::displayUpdated,
