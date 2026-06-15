@@ -10,6 +10,7 @@
 #include <QMenuBar>
 #include <QPushButton>
 #include <QSet>
+#include <QWidget>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_resetZoom(nullptr)
     ,     m_zoomPercent(kDefaultZoomPercent)
     , m_controller(nullptr)
+    , m_deferredInitialized(false)
 {
     ui->setupUi(this);
     applyResponsiveLayout();
@@ -41,11 +43,30 @@ MainWindow::MainWindow(QWidget *parent)
     m_controller->bindSubtract(buttonSubtract());
     m_controller->bindMultiply(buttonMultiply());
     m_controller->bindDivide(buttonDivide());
+    m_controller->discoverAndBindKeypad();
 
     connect(m_controller,
             &CalculatorController::displayUpdated,
             this,
             &MainWindow::updateDisplay);
+}
+
+void MainWindow::deferredInitialization()
+{
+    if (m_deferredInitialized) {
+        return;
+    }
+
+    auto *historyPanel = new QWidget(this);
+    historyPanel->setObjectName(QStringLiteral("deferredHistoryPanel"));
+    historyPanel->hide();
+
+    m_deferredInitialized = true;
+}
+
+bool MainWindow::isDeferredInitialized() const
+{
+    return m_deferredInitialized;
 }
 
 void MainWindow::updateDisplay(const QString &text)
